@@ -78,6 +78,55 @@ footer{color:#b9bfa7}
   .panel{padding:16px}
   .content-grid{gap:12px}
 }
+/* V0.3: Book of Years / Leytide — illustrated interface, mobile-first legibility. */
+:root{--ink:#102620;--parchment:#f1e6c9;--moon:#a6e5d4}
+body{background:radial-gradient(ellipse at 82% 3%,#3b594c 0%,#192e2a 28%,#101e1c 67%);background-attachment:fixed}
+.masthead{position:relative;background:linear-gradient(100deg,#284138ad,transparent 82%);border-radius:14px;padding:16px 12px 22px}
+.brand-mark{background:radial-gradient(circle at 49% 40%,#6f9271,#1f4139 68%);box-shadow:inset 0 0 24px #c5df8a33,0 0 21px #d7daa321}
+.tagline{color:#d4d8bd}
+.pace-control{display:flex;align-items:center;gap:7px;background:#243e35;border:1px solid #64806e;border-radius:9px;padding:2px 8px}
+.pace-control>span{font-size:9px;letter-spacing:1.3px;color:#d7ceaa;font-weight:800}
+.pace-control select{color:#f7e5c0;min-height:38px;max-width:165px;appearance:auto;border:0;background:#243e35;font-size:12px;cursor:pointer}
+.pace-control select option{background:#243e35}
+.hud{border-color:#a6ad775e;box-shadow:inset 0 1px #aabb916e,0 14px 32px #0b1514a8}
+.hud-cell:first-child{background:linear-gradient(125deg,#405547,#2a493e)}
+.hud-cell small{color:#c4d1c1;font-size:10px;line-height:1.3}
+#clock{font-size:clamp(15px,1.7vw,20px);line-height:1.35;color:#ffe6a6;white-space:normal}
+.map-card{border-color:#a6ad775e;box-shadow:0 15px 45px #071310c0}
+.map-bar strong{font-size:22px}
+.map-sky{pointer-events:none;z-index:2;position:absolute;top:12px;left:12px;min-width:155px;max-width:48%;border-radius:10px;background:linear-gradient(120deg,#132e29eb,#2d5043dd);border:1px solid #bdd8b282;color:#ecdebb;padding:8px 12px;box-shadow:0 6px 20px #0b241ca1;font-family:Georgia,serif;font-size:13px}
+.day-meter{margin-top:6px;width:100%;height:3px;background:#a4bba473;border-radius:30px;overflow:hidden}.day-meter span{display:block;height:100%;background:linear-gradient(90deg,#83d7b8,#f3d58a);transition:width .7s linear}
+.map-legend{border:1px solid #d4cb9477}
+.panel{border-color:#b3b18a45;box-shadow:0 11px 24px #080f0d8f}
+.panel h2{font-size:25px}.small-chip{background:#3d5949;border-color:#96b38a77}
+.ley-panel{position:relative;overflow:hidden;background:radial-gradient(circle at 100% 0%,#3c6260 0%,#28463c 31%,#152f2c 85%);border:1px solid #76c1ae8c}
+.ley-panel .eyebrow{color:#addecf}.ley-panel h2{color:#e7fbe7}
+.ley-orb{float:right;width:75px;height:75px;border-radius:50%;margin:2px 0 8px 12px;border:1px solid #a9edc06b;background:radial-gradient(circle,#bafbed 0%,#5fb6a589 18%,#285f5f77 48%,#1e423d55 72%,transparent 75%);box-shadow:0 0 27px #66c5ac36,inset 0 0 16px #b2fff255;display:grid;place-items:center;animation:leyPulse 5s ease-in-out infinite}
+.ley-orb-inner{width:27px;height:27px;transform:rotate(45deg);border:1px solid #edffe1;background:linear-gradient(130deg,#e3ffedaa,#70d8c777);box-shadow:0 0 16px #94e6d3c9}
+.ley-metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px;clear:both;margin:15px 0 13px}.ley-metrics>div{display:flex;flex-direction:column;gap:5px;background:#132c27aa;border:1px solid #73998c5c;border-radius:10px;padding:11px}.ley-metrics span{font-size:10px;letter-spacing:1.2px;color:#accbbe}.ley-metrics strong{font-size:17px;color:#daf9d9}
+.attunement{display:grid;grid-template-columns:1fr 1fr;gap:8px}.attunement button{padding:12px 7px;font-size:12px;min-height:47px;border:1px solid #83b7a1;color:#d0e8d6}.attunement button.active{background:#b3dfc6;color:#16382e;font-weight:800;border-color:#c9efd9}.attunement button:disabled{opacity:.45}.ley-note{font-size:11px;margin:10px 0 0}
+.chronicle-panel{border-color:#c5a9786d;background:linear-gradient(160deg,#3b4134,#263729)}.chronicle-panel .eyebrow{color:#eed09a}.chronicle-panel .event-list time{color:#e4c689}.chronicle-panel .event-list li{border-bottom-color:#8e91685a}
+.build-pause{display:flex;align-items:center;gap:9px;font-size:12px;color:#e9daaf;margin:0 0 13px;padding:8px 11px;background:#364a3a;border-radius:8px;cursor:pointer}.build-pause input{accent-color:#e4c487;width:17px;height:17px}
+.event-list li{line-height:1.5}.event-list time{font-weight:700;letter-spacing:.3px}
+@keyframes leyPulse{50%{filter:brightness(1.16);transform:translateY(-3px)}}
+@media(max-width:600px){
+  .masthead{padding:12px 4px 13px}.brand-mark{flex-shrink:0}
+  .top-actions{grid-template-columns:1fr 1.65fr .77fr;width:100%;gap:7px}
+  .top-actions #pause,.top-actions #save{min-height:46px;padding:7px 5px}
+  .pace-control{padding:2px 3px;gap:3px;min-width:0;flex-direction:column;justify-content:center}
+  .pace-control>span{font-size:8px;line-height:1}
+  .pace-control select{max-width:100%;width:100%;font-size:11px;min-height:26px;text-align:center}
+  .hud{grid-template-columns:1.18fr 1.05fr .74fr}
+  .hud-cell:first-child{padding-left:9px}
+  .hud-cell small{font-size:8px}
+  #clock{font-size:13px}
+  .map-sky{top:10px;left:8px;max-width:52%;min-width:0;padding:7px 9px;font-size:11px}
+  .map-bar strong{font-size:19px}
+  .ley-panel h2{font-size:24px}
+  .ley-orb{width:64px;height:64px}
+  .map-wrap{height:min(64vh,510px);min-height:335px}
+}
+@media(prefers-reduced-motion:reduce){.ley-orb{animation:none}}
 
 </style>
   
@@ -86,11 +135,11 @@ footer{color:#b9bfa7}
   <div class="app-shell">
     <header class="masthead">
       <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><div><div class="eyebrow">AN AUTONOMOUS SETTLEMENT</div><h1>Living World <span class="title-leaf">✺</span></h1><div class="tagline">A tiny world with a life of its own.</div></div></div>
-      <div class="top-actions"><button id="pause" class="primary">⏸ Pause</button><button id="speed" aria-label="Change simulation speed">1× speed</button><button id="save">Save</button></div>
+      <div class="top-actions"><button id="pause" class="primary">⏸ Pause</button><label class="pace-control" for="speed"><span>PACE</span><select id="speed" aria-label="Simulation pace"><option value="0.5">½× · 20m/day</option><option value="1" selected>1× · 10m/day</option><option value="2">2× · 5m/day</option><option value="4">4× · 2½m/day</option><option value="8">8× · 75s/day</option></select></label><button id="save">Save</button></div>
     </header>
     <section class="hud" aria-label="Settlement status">
-      <div class="hud-cell"><span class="hud-label">DAY / HOUR</span><strong id="clock">1 · 08:00</strong></div>
-      <div class="hud-cell"><span class="hud-label">CONDITIONS</span><strong id="weather">Clear · Spring</strong></div>
+      <div class="hud-cell"><span class="hud-label">THE BOOK OF YEARS</span><strong id="clock">1 Budrise · Year 1</strong><small id="elapsed">Founded today</small></div>
+      <div class="hud-cell"><span class="hud-label">SKY & SEASON</span><strong id="weather">Clear · Spring</strong><small id="daylight">08:00 · Morning</small></div>
       <div class="hud-cell"><span class="hud-label">PEOPLE</span><strong id="people">5 / 6</strong></div>
       <div class="hud-cell resource"><span class="resource-dot wood"></span><span class="hud-label">WOOD</span><strong id="wood">38</strong></div>
       <div class="hud-cell resource"><span class="resource-dot stone"></span><span class="hud-label">STONE</span><strong id="stone">26</strong></div>
@@ -99,25 +148,107 @@ footer{color:#b9bfa7}
     <main class="content-grid">
       <section class="map-card" aria-label="Interactive simulation world">
         <div class="map-bar"><div><span class="live-dot"></span><strong>Settlement map</strong><span class="muted" id="seed-label"></span></div><span class="muted" id="map-mode">Drag to explore · Pinch to zoom · Tap to inspect.</span></div>
-        <div class="map-wrap"><div class="map-tools" role="group" aria-label="Map navigation"><button id="zoom-in" title="Zoom in" aria-label="Zoom in">＋</button><span id="zoom-level" aria-live="off">175%</span><button id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-home" title="Find your hearth" aria-label="Find your hearth">⌂</button></div><canvas id="world" width="1056" height="768" aria-label="Top-down tile map; select a building then click or tap to construct" role="img"></canvas><div class="map-legend" aria-hidden="true"><span>👣 Drag to explore</span><span>✌ Pinch to zoom</span><span>✦ Tap to inspect</span></div></div>
+        <div class="map-wrap"><div class="map-sky"><span id="world-phase">Morning in the valley</span><div class="day-meter"><span id="day-progress"></span></div></div><div class="map-tools" role="group" aria-label="Map navigation"><button id="zoom-in" title="Zoom in" aria-label="Zoom in">＋</button><span id="zoom-level" aria-live="off">175%</span><button id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-home" title="Find your hearth" aria-label="Find your hearth">⌂</button></div><canvas id="world" width="1056" height="768" aria-label="Top-down tile map; select a building then click or tap to construct" role="img"></canvas><div class="map-legend" aria-hidden="true"><span>👣 Drag to explore</span><span>✌ Pinch to zoom</span><span>✦ Tap to inspect</span></div></div>
         <div class="map-footer"><span id="notice" role="status" aria-live="polite">Your settlers act on their own. Shape their future.</span><button id="cancel-build" hidden>Cancel placement</button></div>
       </section>
       <aside class="sidebar">
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">SETTLEMENT</div><h2>Build & expand</h2></div><span class="small-chip">6 buildings</span></div><p class="panel-description">Choose a building, then tap a clear grassy plot. Your settlers handle the construction.</p><div class="build-grid" id="build-buttons"></div></section>
+        <section class="panel ley-panel"><div class="panel-heading"><div><div class="eyebrow">THE LIVING LAND</div><h2>✧ Leytide currents</h2></div><span class="small-chip" id="ley-status">Uncharted</span></div><div class="ley-orb" aria-hidden="true"><span class="ley-orb-inner"></span></div><p class="panel-description" id="ley-description">Strange currents gather beneath roots, rain and stone. Your villagers may begin to notice them.</p><div class="ley-metrics"><div><span>KNOWN SITES</span><strong id="ley-known">0 / 5</strong></div><div><span>LAND STRAIN</span><strong id="ley-strain">Quiet</strong></div></div><div class="attunement"><button id="ley-observe" class="active">Observe · Rest</button><button id="ley-weave" disabled>Weave · Cultivate</button></div><p class="panel-description ley-note" id="ley-note">Observing restores the land. Cultivation may increase harvests at the cost of local balance.</p></section>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">SETTLEMENT</div><h2>Build & expand</h2></div><span class="small-chip">6 buildings</span></div><p class="panel-description">Choose a building, then tap a clear grassy plot. Your settlers handle the construction.</p><label class="build-pause"><input type="checkbox" id="pause-build" checked> Pause time while selecting a plot</label><div class="build-grid" id="build-buttons"></div></section>
         <section class="panel"><div class="panel-heading"><div><div class="eyebrow">INHABITANTS</div><h2>Your people</h2></div><span class="small-chip" id="pop-chip">5 alive</span></div><div id="settler-list" class="settler-list"></div></section>
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">WORLD HISTORY</div><h2>Recent events</h2></div></div><ol id="event-list" class="event-list"></ol></section>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">DAILY LIFE</div><h2>Recent activity</h2></div></div><ol id="event-list" class="event-list"></ol></section>
+        <section class="panel chronicle-panel"><div class="panel-heading"><div><div class="eyebrow">THE CHRONICLE</div><h2>Book of Years</h2></div><span class="small-chip" id="history-count">1 milestone</span></div><ol id="history-list" class="event-list"></ol></section>
         <section class="panel"><div class="panel-heading"><div><div class="eyebrow">PERSISTENCE</div><h2>Your world</h2></div></div><p class="panel-description">Local autosave every 20 hours. Export a portable file to keep a backup; import it on another device.</p><div class="tool-buttons"><button id="export">Export world</button><label class="button-label" for="import-file">Import world</label><input id="import-file" type="file" accept=".json,application/json" hidden><button id="new-world">New world</button></div></section>
       </aside>
     </main>
-    <footer>Living World <span id="version">v0.2</span> · Runs locally in your browser · No account or server required</footer>
+    <footer>Living World <span id="version">v0.3</span> · Runs locally in your browser · No account or server required</footer>
   </div>
 <script>
 (()=>{
 "use strict";
+/** The Book of Years. 48 days/year preserves the original four 12-day seasons. */
+const DAYS_PER_SEASON = 12;
+const SEASONS_PER_YEAR = 4;
+const DAYS_PER_YEAR = DAYS_PER_SEASON * SEASONS_PER_YEAR;
+const SEASON_NAMES = Object.freeze(['Budrise', 'Highsun', 'Goldfall', 'Deepfrost']);
+const FOUNDING_TICK = 8;
+function calendarAt(tick) {
+  if (!Number.isSafeInteger(tick) || tick < 0) throw new RangeError('Invalid world clock');
+  const absoluteDay = Math.floor(tick / 24);
+  const seasonIndex = Math.floor((absoluteDay % DAYS_PER_YEAR) / DAYS_PER_SEASON);
+  const year = Math.floor(absoluteDay / DAYS_PER_YEAR) + 1;
+  const dayOfSeason = absoluteDay % DAYS_PER_SEASON + 1;
+  return { year, season: SEASON_NAMES[seasonIndex], seasonIndex, dayOfSeason,
+    worldDay: absoluteDay + 1, hour: tick % 24, elapsedHours: Math.max(0,tick-FOUNDING_TICK),
+    elapsedDays: Math.floor(Math.max(0,tick-FOUNDING_TICK)/24) };
+}
+function dateLabel(tick) {
+  const d=calendarAt(tick);
+  return `${d.dayOfSeason} ${d.season} · Year ${d.year}`;
+}
+function datedEvent(tick, text) { return `${dateLabel(tick)} — ${text}`; }
+
+
+/** Fixed simulation hours and independent smooth display progression. No wall time in world state. */
+const BASE_DAY_MS = 600000;
+const HOUR_MS = BASE_DAY_MS / 24;
+const SPEED_OPTIONS = Object.freeze([0.5, 1, 2, 4, 8]);
+function validSpeed(value) { return SPEED_OPTIONS.includes(value); }
+function dayDurationMs(speed) { if(!validSpeed(speed))throw new RangeError('Invalid simulation speed');return BASE_DAY_MS/speed; }
+function createClock() { return { accumulated: 0 }; }
+function progressClock(clock, elapsedMs, speed, paused = false) {
+  if(!validSpeed(speed) || !Number.isFinite(elapsedMs) || elapsedMs<0)throw new RangeError('Invalid real-time clock input');
+  if(paused) return { hours:0, fraction:clock.accumulated/HOUR_MS };
+  // Ignore enormous background-tab deltas; never silently fast-forward an abandoned phone tab.
+  clock.accumulated += Math.min(elapsedMs, 5000) * speed;
+  const hours = Math.floor(clock.accumulated / HOUR_MS);
+  clock.accumulated -= hours * HOUR_MS;
+  return { hours, fraction:clock.accumulated/HOUR_MS };
+}
+
+
+/** Finite chronicle: significant milestones survive while routine activity remains in events. */
+const MAX_CHRONICLE = 120;
+const TYPES = Object.freeze(['founding','construction','discovery','population','environment','legacy']);
+function createChronicle(tick = 8) {
+  return { records:[{tick, type:'founding', text:'The first five settlers lit the Hearth of Beginning.'}], archived:{}, total:1 };
+}
+function remember(state, type, text) {
+  if(!TYPES.includes(type) || typeof text!=='string' || text.length>220)throw new Error('Invalid historical event');
+  if(!state.history)state.history=createChronicle();
+  const h=state.history;
+  const last=h.records[h.records.length-1];
+  if(last && last.tick===state.tick && last.type===type && last.text===text)return;
+  h.records.push({tick:state.tick,type,text});h.total++;
+  if(h.records.length>MAX_CHRONICLE){
+    const old=h.records.splice(1,1)[0];
+    h.archived[old.type]=(h.archived[old.type]||0)+1;
+  }
+}
+function migrateChronicle(legacy) {
+  const h=createChronicle();
+  // Recover milestones visible in the older short-lived event log without fabricating unseen history.
+  const entries=[...(legacy.events||[])].reverse();
+  for(const e of entries){
+    let type=null;
+    if(/construction completed/i.test(e.message))type='construction';
+    else if(/joined the growing settlement|died during/i.test(e.message))type='population';
+    if(type && e.tick>=8 && e.tick<=legacy.tick){h.records.push({tick:e.tick,type,text:e.message});h.total++;}
+  }
+  return h;
+}
+function isValidChronicle(h,tick) {
+  return !!(h && typeof h==='object' && Array.isArray(h.records) && h.records.length>=1 && h.records.length<=MAX_CHRONICLE && Number.isSafeInteger(h.total) && h.total>=h.records.length && h.archived && typeof h.archived==='object' &&
+    Object.entries(h.archived).every(([k,v])=>TYPES.includes(k)&&Number.isSafeInteger(v)&&v>=0) &&
+    h.records[0].type==='founding' && h.records.every(r=>r && TYPES.includes(r.type) && Number.isSafeInteger(r.tick) && r.tick>=0 && r.tick<=tick && typeof r.text==='string' && r.text.length>0 && r.text.length<=220));
+}
+
+
+
+
 /** Reproducible world creation. No DOM, browser APIs or external packages. */
 const WORLD_WIDTH = 44;
 const WORLD_HEIGHT = 32;
-const SAVE_VERSION = 1;
+const SAVE_VERSION = 2;
 
 const BUILDINGS = Object.freeze({
   cabin: { name: 'Cabin', wood: 16, stone: 5, housing: 3, description: '+3 settler capacity' },
@@ -176,6 +307,8 @@ function housingCapacity(state) {
 function logEvent(state, message) {
   state.events.unshift({ tick: state.tick, message });
   if (state.events.length > 32) state.events.length = 32;
+  if (/construction completed/.test(message)) remember(state,'construction',message);
+  else if (/joined the growing settlement|died during/.test(message)) remember(state,'population',message);
 }
 
 function createWorld(seed = 'living-world', width = WORLD_WIDTH, height = WORLD_HEIGHT) {
@@ -207,11 +340,12 @@ function createWorld(seed = 'living-world', width = WORLD_WIDTH, height = WORLD_
     structures: [{ id: 1, type: 'hearth', x: centerX, y: centerY, complete: true, progress: 100, crop: 0 }],
     settlers: [], nextSettlerId: 1, nextStructureId: 2,
     stock: { wood: 38, stone: 26, food: 44 },
-    tick: 8, weather: 'Clear', events: [],
+    tick: 8, weather: 'Clear', events: [], history: createChronicle(),
     stats: { foodHarvested: 0, timberCollected: 0, stoneCollected: 0, births: 0 }
   };
   const coords = [[-1,-1],[1,-1],[-1,1],[1,1],[0,-2]];
   for (const [dx, dy] of coords) addSettler(state, centerX + dx, centerY + dy);
+  state.magic = createLeytide(state);
   logEvent(state, 'Five settlers founded a new hearth. Your settlement begins.');
   return state;
 }
@@ -241,6 +375,92 @@ function placeBuilding(state, type, x, y) {
   logEvent(state, `${blueprint.name} planned. Settlers will construct it.`);
   return { ok: true, building: b };
 }
+
+
+/** Leytide: locally replenished environmental resonance, observed rather than cast as spells.
+ * Villagers discover confluences. Attunement influences nearby farming at an ecological cost.
+ */
+
+
+const POLICIES = Object.freeze(['observe','weave']);
+const between=(n,a,b)=>Math.min(b,Math.max(a,n));
+const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+function createLeytide(world) {
+  const n=hashSeed(world.seed), home=world.structures[0], options=[];
+  for(let y=1;y<world.height-1;y++)for(let x=1;x<world.width-1;x++){
+    const tile=tileAt(world,x,y);if(tile.kind==='water'||(x===home.x&&y===home.y))continue;
+    const dist=Math.hypot(x-home.x,y-home.y);
+    if(dist<2.5)continue;
+    const nearby=['forest','water'].reduce((a,kind)=>a+[[1,0],[-1,0],[0,1],[0,-1]].filter(([dx,dy])=>tileAt(world,x+dx,y+dy)?.kind===kind).length,0);
+    const score=randomAt(n,x,y,204)*.7 + nearby*.075 - Math.abs(dist-6)*.012;
+    options.push({x,y,score,dist});
+  }
+  options.sort((a,b)=>b.score-a.score||a.y-b.y||a.x-b.x);
+  const sites=[];
+  // Guaranteed near-home confluence gives early playable discovery even on poor terrain seeds.
+  const near=options.filter(o=>o.dist<4.5).sort((a,b)=>b.score-a.score)[0];
+  if(near)sites.push({x:near.x,y:near.y,charge:64,strain:0,witness:0,discovered:false});
+  for(const p of options){
+    if(sites.length>=5)break;
+    if(sites.some(s=>distance(s,p)<7))continue;
+    sites.push({x:p.x,y:p.y,charge:Math.round(45+25*randomAt(n,p.x,p.y,205)),strain:0,witness:0,discovered:false});
+  }
+  return {policy:'observe',sites,knowledge:0,spent:0};
+}
+function setAttunement(state,policy) {
+  if(!POLICIES.includes(policy))return false;
+  if(policy==='weave'&&!state.magic.sites.some(s=>s.discovered))return false;
+  if(state.magic.policy===policy)return true;
+  state.magic.policy=policy;
+  remember(state,'discovery',policy==='weave'?'The council began weaving the Leytide into cultivation.':'The council restored a policy of observing the Leytide.');
+  return true;
+}
+function farmResonance(world,farm) {
+  if(!world.magic || world.magic.policy!=='weave')return 1;
+  const site=world.magic.sites.find(s=>s.discovered && s.charge>=5 && s.strain<85 && distance(s,farm)<=6);
+  return site ? (site.strain>=50?1.12:1.48) : 1;
+}
+function leyAt(world,x,y) {return world.magic?.sites.find(s=>s.x===x&&s.y===y)??null;}
+function updateLeytide(state) {
+  if(!state.magic)return;
+  for(const s of state.magic.sites){
+    if(!s.discovered){
+      const witnesses=state.settlers.filter(p=>distance(p,s)<=2.6).length;
+      s.witness=between(s.witness+witnesses,0,250);
+      if(s.witness>=6){
+        s.discovered=true;state.magic.knowledge++;
+        remember(state,'discovery',`The villagers recognised a Leytide confluence at (${s.x}, ${s.y}).`);
+        logEvent(state,'A Leytide confluence has been discovered! The land carries an ancient current.');
+      }
+    }
+    if(state.tick%24===0){
+      // Rain nourishes ley currents; strained ground recovers slowly without extraction.
+      s.charge=between(s.charge+(state.weather==='Rain'?8:4)-(s.strain>65?2:0),0,100);
+      s.strain=between(s.strain-(state.magic.policy==='observe'?5:2),0,100);
+      if(s.strain>=65 && s.strain<68)remember(state,'environment','The confluence flickered: careless cultivation strained the land.');
+    }
+    if(state.magic.policy==='weave' && s.discovered && s.charge>=5){
+      const farms=state.structures.filter(b=>b.complete&&b.type==='farm'&&distance(s,b)<=6);
+      if(farms.length){
+        const cost=Math.min(s.charge,farms.length*.24);
+        s.charge=between(s.charge-cost,0,100);
+        s.strain=between(s.strain+farms.length*.13,0,100);
+        state.magic.spent+=cost;
+      }
+    }
+  }
+}
+function validLeytide(m,world) {
+  if(!m||!POLICIES.includes(m.policy)||!Number.isInteger(m.knowledge)||m.knowledge<0||!Number.isFinite(m.spent)||m.spent<0||!Array.isArray(m.sites)||m.sites.length>12)return false;
+  const seen=new Set();
+  return m.sites.every(s=>{
+    if(!s||!Number.isInteger(s.x)||!Number.isInteger(s.y)||s.x<0||s.y<0||s.x>=world.width||s.y>=world.height||typeof s.discovered!=='boolean'||
+       !Number.isFinite(s.charge)||s.charge<0||s.charge>100||!Number.isFinite(s.strain)||s.strain<0||s.strain>100||!Number.isInteger(s.witness)||s.witness<0||s.witness>250)return false;
+    const key=`${s.x},${s.y}`;if(seen.has(key)||tileAt(world,s.x,s.y).kind==='water')return false;seen.add(key);return true;
+  });
+}
+
+
 
 
 /** Time progression and autonomous inhabitant decision-making, independent of display. */
@@ -320,6 +540,7 @@ function performJob(state, settler, job) {
         state.stock.food += stored;
         state.stats.foodHarvested += stored;
         b.crop = 0;
+        if(state.stats.foodHarvested===stored)remember(state,'construction','The settlement gathered its first farm harvest.');
         logEvent(state, `${settler.name} harvested ${stored} food from a farm.`);
       }, 'Harvesting');
   }
@@ -382,7 +603,7 @@ function updateWeatherAndNature(state) {
   const seasonalGrowth = season === 'Winter' ? 0.4 : season === 'Summer' ? 1.1 : 1;
   for (const b of state.structures) {
     if (b.complete && b.type === 'farm' && daylight) {
-      b.crop = Math.min(100, b.crop + 4.2 * seasonalGrowth * (state.weather === 'Rain' ? 1.35 : 1));
+      b.crop = Math.min(100, b.crop + 4.2 * seasonalGrowth * (state.weather === 'Rain' ? 1.35 : 1) * farmResonance(state,b));
     }
   }
   // One deterministic regrowth pass per day, not expensive per-settler checks.
@@ -466,6 +687,7 @@ function advanceWorld(state, hours = 1) {
   for (let i = 0; i < hours; i++) {
     state.tick++;
     updateWeatherAndNature(state);
+    updateLeytide(state);
     // Copy so births/removals never break iteration ordering.
     for (const settler of [...state.settlers]) act(state, settler);
     const deceased = state.settlers.filter(p => p.health <= 0);
@@ -488,13 +710,16 @@ function advanceWorld(state, hours = 1) {
 }
 
 
+
+
 /** Versioned, validated save interchange. Never trusts imported JSON. */
 
-const STORAGE_KEY = 'living-world:save:v1';
+const STORAGE_KEY = 'living-world:save:v2';
+const LEGACY_STORAGE_KEY = 'living-world:save:v1';
 
 const finite = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
-function validateWorld(s) {
-  if (!s || typeof s !== 'object' || s.version !== SAVE_VERSION || typeof s.seed !== 'string' || s.seed.length > 80 ||
+function validateBase(s, version) {
+  if (!s || typeof s !== 'object' || s.version !== version || typeof s.seed !== 'string' || s.seed.length > 80 ||
       !Number.isInteger(s.width) || !Number.isInteger(s.height) || s.width < 16 || s.height < 16 || s.width > 100 || s.height > 100) return false;
   if (!Array.isArray(s.tiles) || s.tiles.length !== s.width * s.height || !Array.isArray(s.structures) || !Array.isArray(s.settlers) || !Array.isArray(s.events) || s.events.length > 32) return false;
   if (!Number.isSafeInteger(s.tick) || s.tick < 0 || !Number.isSafeInteger(s.nextSettlerId) || !Number.isSafeInteger(s.nextStructureId)) return false;
@@ -525,6 +750,17 @@ function validateWorld(s) {
   if (Math.max(...ids) >= s.nextStructureId || s.settlers.some(p => p.id >= s.nextSettlerId)) return false;
   return true;
 }
+function validateWorld(s) {
+  return validateBase(s,SAVE_VERSION) && isValidChronicle(s.history,s.tick) && validLeytide(s.magic,s);
+}
+function migrateSave(old) {
+  if(!validateBase(old,1)) throw new Error('Invalid legacy world');
+  const next = structuredClone(old);
+  next.version=SAVE_VERSION;
+  next.history=migrateChronicle(old);
+  next.magic=createLeytide(next);
+  return next;
+}
 function serializeWorld(state) {
   if (!validateWorld(state)) throw new Error('Cannot serialize an invalid world.');
   return JSON.stringify(state);
@@ -533,12 +769,13 @@ function deserializeWorld(text) {
   if (typeof text !== 'string' || text.length > 5000000) throw new Error('Save file is too large or invalid.');
   let state;
   try { state = JSON.parse(text); } catch { throw new Error('Save file is not valid JSON.'); }
+  if (state?.version===1) state=migrateSave(state);
   if (!validateWorld(state)) throw new Error('Save file has an unsupported version or invalid data.');
   return state;
 }
 function saveToStorage(storage, state) { storage.setItem(STORAGE_KEY, serializeWorld(state)); }
 function loadFromStorage(storage) {
-  const value = storage.getItem(STORAGE_KEY);
+  const value = storage.getItem(STORAGE_KEY) || storage.getItem(LEGACY_STORAGE_KEY);
   return value ? deserializeWorld(value) : null;
 }
 
@@ -583,6 +820,7 @@ function zoomViewport(camera, factor, px, py, pixelWidth, pixelHeight, world) {
 
 
 /** Illustrated, dependency-free world renderer. Never changes simulation state. */
+
 
 
 
@@ -634,10 +872,18 @@ function cell(c,t,x,y,n,season,clock){
     }
   }
 }
-function terrain(c,state,season,seed,x1,y1,x2,y2) {
+function terrain(c,state,season,seed,x1,y1,x2,y2,frame) {
   for(let y=y1;y<y2;y++)for(let x=x1;x<x2;x++) {
     const tile=tileAt(state,x,y), n=randomAt(seed,x,y,92);
-    cell(c,tile,x,y,n,season,state.tick);
+    cell(c,tile,x,y,n,season,frame);
+    // Layered soil and contour strokes soften the otherwise obvious square tile grid.
+    if(tile.kind!=='water'){
+      if(n>.63){oval(c,x+.16,y+.83,.10,.033,'#303e2620');oval(c,x+.76,y+.65,.075,.027,'#dce4a32a');}
+      if(n<.22 && season!=='Winter'){
+        line(c,x+.34,y+.88,x+.38,y+.73,'#45694478',.02);
+        oval(c,x+.38,y+.72,.038,.033,season==='Spring'?'#e8bbd0':'#eac67f');
+      }
+    }
     if(tile.kind==='water'){
       const near=[[0,-1],[0,1],[-1,0],[1,0]].some(([dx,dy])=>tileAt(state,x+dx,y+dy)?.kind==='grass');
       if(near){line(c,x+.05,y+.90,x+.78,y+.89,'#d0d5a353',.035);}
@@ -717,17 +963,30 @@ function structure(c,b,clock,season){
   }
 }
 const outfit = ['#d6a168','#87a9a3','#ae8aab','#b4b67c','#c2796c','#829dc1'];
-function people(c,state,clock){
+function people(c,state,clock,frame,movement,motionAge){
   // Consistent colour per person, job equipment and task emblems make work readable.
   for(const p of state.settlers){
-    const x=p.x+.5+((p.id%3)-1)*.12,y=p.y+.49+((p.id%5)-2)*.07;
+    const old=movement?.get(p.id);
+    const t=old ? Math.min(1,motionAge/3700) : 1;
+    const eased=t*t*(3-2*t);
+    const moving=old && (old.x!==p.x||old.y!==p.y) && t<1;
+    const fx=old?old.x+(p.x-old.x)*eased:p.x, fy=old?old.y+(p.y-old.y)*eased:p.y;
+    const idle=Math.sin(frame*.065+p.id*2.3)*.075;
+    const bounce=moving?Math.sin(t*11*Math.PI)*.04:Math.sin(frame*.04+p.id)*.025;
+    const x=fx+.5+((p.id%3)-1)*.12+idle,y=fy+.49+((p.id%5)-2)*.07-bounce;
     oval(c,x,y+.27,.17,.065,'#293d305c');
     const colour=outfit[p.id%outfit.length];
     line(c,x-.07,y+.16,x-.09,y+.26,'#4b4c43',.06);
     line(c,x+.07,y+.16,x+.07,y+.26,'#4b4c43',.06);
     oval(c,x,y+.07,.13,.16,colour);
+    line(c,x-.105,y+.03,x-.18,y+.16,'#ead0a9',.04);
+    line(c,x+.105,y+.03,x+.18,y+.15,'#ead0a9',.04);
     oval(c,x,y-.095,.12,.125,p.health<40?'#dfa5a4':'#eac7a0');
     oval(c,x-.035,y-.18,.13,.052,['#4e4639','#85654d','#62452e'][p.id%3]);
+    if(moving){
+      // Head-to-toe motion remains visible even during long in-world hours.
+      line(c,x-.09,y+.19,x-.14+Math.sin(t*19)*.03,y+.28,'#b7c79d',.04);
+    }
     if(p.task==='Building'||p.task==='Logging'||p.task==='Quarrying'){
       line(c,x+.14,y+.02,x+.28,y-.15,'#ac8054',.033);
       poly(c,[[x+.24,y-.21],[x+.36,y-.18],[x+.32,y-.10],[x+.21,y-.14]],'#aeb6ae');
@@ -739,7 +998,31 @@ function people(c,state,clock){
     }
   }
 }
-function drawWorld(c,state,camera,{hovered=null,placing=null,selected=null,frame=0}={}){
+function magicalLayer(c,state,frame){
+  if(!state.magic)return;
+  for(const site of state.magic.sites){
+    // Even unknown currents leave faint, observable signs in the landscape.
+    if(!site.discovered){
+      const a=.2+.14*Math.sin(frame*.03+site.y);
+      oval(c,site.x+.5,site.y+.54,.26,.11,`rgba(128,237,208,${a.toFixed(3)})`);
+      for(let i=0;i<3;i++)oval(c,site.x+.5+Math.sin(frame*.016+i*2)*.22,site.y+.4+Math.cos(frame*.013+i)*.16,.022,.037,'#b0e9df9c');
+      continue;
+    }
+    const strength=site.charge/100,glow=.6+.25*Math.sin(frame*.038+site.x);
+    c.save();c.translate(site.x+.5,site.y+.52);
+    for(let ring=0;ring<2;ring++){
+      c.beginPath();c.ellipse(0,0,(.28+ring*.23)*(1+Math.sin(frame*.019+ring)*.13),(.13+ring*.09),0,0,Math.PI*2);
+      c.strokeStyle=`rgba(${site.strain>65?'244,152,117':'129,240,226'},${(strength*glow*(.6-ring*.18)).toFixed(3)})`;
+      c.lineWidth=.04-ring*.015;c.stroke();
+    }
+    for(let i=0;i<5;i++){
+      const a=i*2.39+frame*.012, r=.18+(i%3)*.09;
+      oval(c,Math.cos(a)*r,-.15+Math.sin(a)*r*.5,.025,.042,site.strain>65?'#f8b47f':'#b3fff0');
+    }
+    c.restore();
+  }
+}
+function drawWorld(c,state,camera,{hovered=null,placing=null,frame=0,fraction=0,movement=null,motionAge=99999,selected=null}={}){
   if(!c||!state)return;
   const width=c.canvas.width,height=c.canvas.height,scale=cameraScale(camera,width,height,state);
   const x0=width/2-camera.cx*scale,y0=height/2-camera.cy*scale;
@@ -750,7 +1033,7 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,selected=null,frame
   const x1=Math.max(0,Math.floor(-x0/scale)-1),y1=Math.max(0,Math.floor(-y0/scale)-1);
   const x2=Math.min(state.width,Math.ceil((width-x0)/scale)+1),y2=Math.min(state.height,Math.ceil((height-y0)/scale)+1);
   const season=seasonFor(dayOf(state)), seed=hashSeed(state.seed);
-  terrain(c,state,season,seed,x1,y1,x2,y2);
+  terrain(c,state,season,seed,x1,y1,x2,y2,frame);
   // Footpaths connect established structures, an evolving illustration of settlement size.
   const hearth=state.structures[0];
   if(hearth){for(const b of state.structures){if(b===hearth)continue;
@@ -759,8 +1042,9 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,selected=null,frame
     c.strokeStyle='#bb9d6f70';c.lineWidth=.22;c.lineJoin='round';c.stroke();
     c.strokeStyle='#e5c48b4f';c.lineWidth=.065;c.stroke();
   }}
-  state.structures.forEach(b=>structure(c,b,state.tick,season));
-  people(c,state,state.tick);
+  state.structures.forEach(b=>structure(c,b,frame,season));
+  magicalLayer(c,state,frame);
+  people(c,state,state.tick,frame,movement,motionAge);
   if(hovered&&hovered.x>=0&&hovered.y>=0&&hovered.x<state.width&&hovered.y<state.height){
     c.strokeStyle=placing?'#ffe49b':'#e9f3ce';c.lineWidth=.07;c.strokeRect(hovered.x+.07,hovered.y+.07,.86,.86);
     if(placing){c.fillStyle='#f9dd9150';c.fillRect(hovered.x+.06,hovered.y+.06,.88,.88);}
@@ -768,8 +1052,20 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,selected=null,frame
   if(selected){c.strokeStyle='#ffe6a3';c.lineWidth=.075;c.strokeRect(selected.x+.05,selected.y+.05,.9,.9);}
   c.restore();
   c.setTransform(1,0,0,1,0,0);
-  const hr=hourOf(state), darkness=hr>=20||hr<6?(hr>=22||hr<5?.48:.31):hr===19||hr===6?.15:0;
-  if(darkness){c.fillStyle=`rgba(13,28,56,${darkness})`;c.fillRect(0,0,width,height);}
+  const hr=hourOf(state)+fraction;
+  const darkness=hr<5.5||hr>=21?.48:hr<7?(.48*(7-hr)/1.5):hr>=18.5?(.48*(hr-18.5)/2.5):0;
+  if(darkness){c.fillStyle=`rgba(12,21,58,${Math.min(.48,darkness)})`;c.fillRect(0,0,width,height);}
+  // Warm household lights become visible from dusk to dawn, without expensive blurs.
+  if(darkness>.08){
+    c.save();c.setTransform(scale,0,0,scale,x0,y0);
+    for(const b of state.structures){if(!b.complete||!['hearth','cabin','well'].includes(b.type))continue;
+      const radius=b.type==='hearth'?1.65:1.04;
+      const g=c.createRadialGradient(b.x+.5,b.y+.55,.03,b.x+.5,b.y+.55,radius);
+      g.addColorStop(0,`rgba(255,195,103,${Math.min(.35,darkness*.77)})`);g.addColorStop(1,'rgba(255,185,85,0)');
+      c.fillStyle=g;c.fillRect(b.x+.5-radius,b.y+.55-radius,radius*2,radius*2);
+    }
+    c.restore();
+  }
   if(state.weather==='Rain'){
     c.strokeStyle='#e3eae488';c.lineWidth=Math.max(1,width/850);
     const spacing=Math.max(18,width/28);const offset=(frame*11+state.tick*7)%spacing;
@@ -788,11 +1084,14 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,selected=null,frame
   }
   // World status is anchored to the viewport rather than painted over the controls.
   const label=hr>=20||hr<6?'NIGHTFALL':hr<9?'MORNING':hr<17?'DAYLIGHT':'EVENING';
-  c.fillStyle='#11251dc7';c.fillRect(12,12,Math.min(170,width*.43),31);
+  c.fillStyle='#11251de0';c.fillRect(12,12,Math.min(190,width*.48),34);
   c.font=`600 ${Math.max(12,Math.min(16,width/42))}px system-ui`;
-  c.fillStyle='#f4e6c7';c.fillText(`${label}  ·  ${season.toUpperCase()}`,21,33);
+  c.fillStyle='#f4e6c7';c.fillText(`${label}  ·  ${season.toUpperCase()}`,21,34);
   c.setTransform(1,0,0,1,0,0);
 }
+
+
+
 
 
 
@@ -804,6 +1103,8 @@ const $ = id => document.getElementById(id);
 const canvas = $('world'), ctx = canvas.getContext('2d');
 let state;
 let paused = false, speed = 1, placing = null, hovered = null;
+let autoPaused = false, clock = createClock(), fraction=0, lastFrame=0, lastPaint=0, lastClockLabel=0;
+let movement = new Map(), motionAt=0;
 let savesAvailable = true;
 let camera, selected = null, renderFrame = 0;
 const pointers = new Map();
@@ -831,12 +1132,34 @@ function init() {
   setupControls();
   resizeCanvas();
   render();
-  setInterval(() => {
-    if (paused) return;
-    advanceWorld(state, speed);
-    if (state.tick % 20 < speed) save(true);
-    render();
-  }, 700);
+  requestAnimationFrame(frameLoop);
+  document.addEventListener('visibilitychange',()=>{lastFrame=0;});
+}
+function frameLoop(now) {
+  const elapsed=lastFrame?Math.max(0,now-lastFrame):0;
+  lastFrame=now;
+  if (state && !document.hidden) {
+    const step=progressClock(clock,elapsed,speed,paused);
+    fraction=step.fraction;
+    if(step.hours){
+      movement=new Map(state.settlers.map(p=>[p.id,{x:p.x,y:p.y}]));
+      advanceWorld(state,step.hours);motionAt=now;
+      if(state.tick%20<step.hours)save(true);
+      render();
+    }
+    if(now-lastPaint>85){drawMap(now);lastPaint=now;}
+    if(now-lastClockLabel>900){updateClock();lastClockLabel=now;}
+  }
+  requestAnimationFrame(frameLoop);
+}
+function updateClock() {
+  const d=calendarAt(state.tick), minute=Math.floor(fraction*60);
+  $('clock').textContent=dateLabel(state.tick);
+  $('elapsed').textContent=`World day ${d.worldDay} · ${d.elapsedDays} completed days since founding`;
+  $('daylight').textContent=`${String(d.hour).padStart(2,'0')}:${String(minute).padStart(2,'0')} · ${Math.round(dayDurationMs(speed)/60000*10)/10}m per day`;
+  const hour=d.hour+fraction;
+  $('world-phase').textContent=hour<6?'The sleeping valley':hour<11?'Morning in the valley':hour<17?'The working day':hour<21?'Evening falls':'The lantern hours';
+  $('day-progress').style.width=`${((hour/24)*100).toFixed(1)}%`;
 }
 function buildPalette() {
   const palette = $('build-buttons');
@@ -851,6 +1174,8 @@ function buildPalette() {
     button.append(heading, cost, desc);
     button.addEventListener('click', () => {
       placing = placing === type ? null : type;
+      if(placing && $('pause-build').checked && !paused){ paused=true;autoPaused=true;syncPause(); }
+      if(!placing)resumeAfterBuild();
       render();
       notice(placing ? `Tap an empty grass tile to place ${b.name.toLowerCase()}.` : 'Building placement cancelled.');
       if(placing && window.innerWidth <= 1050)document.querySelector('.map-card').scrollIntoView({behavior:'smooth',block:'start'});
@@ -859,15 +1184,17 @@ function buildPalette() {
   }
 }
 function setupControls() {
-  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? '▶ Resume' : '⏸ Pause'; render(); });
-  $('speed').addEventListener('click', () => { speed = speed === 1 ? 2 : speed === 2 ? 4 : 1; $('speed').textContent = `${speed}× speed`; });
+  $('pause').addEventListener('click', () => { paused = !paused;autoPaused=false;syncPause(); render(); });
+  $('speed').addEventListener('change',ev=>{speed=Number(ev.target.value);notice(`Time now runs at ${speed}× · ${dayDurationMs(speed)/60000} minutes per day.`);updateClock();});
+  $('ley-observe').addEventListener('click',()=>{setAttunement(state,'observe');render();});
+  $('ley-weave').addEventListener('click',()=>{if(setAttunement(state,'weave')){notice('Cultivation draws resonance into nearby farms, but strains the confluences.');save(true);render();}});
   $('save').addEventListener('click', () => save());
-  $('cancel-build').addEventListener('click', () => { placing = null; render(); notice('Building placement cancelled.'); });
+  $('cancel-build').addEventListener('click', () => { placing = null; resumeAfterBuild();render(); notice('Building placement cancelled.'); });
   $('new-world').addEventListener('click', () => {
     if (!window.confirm('Create a new world? Export your current settlement first if you want to keep it.')) return;
     const seed = window.prompt('World seed (same seed creates the same terrain):', `valley-${Math.floor(Math.random()*100000)}`);
     if (seed === null) return;
-    state = createWorld(seed || 'living-world'); camera = homeCamera(); selected = null; placing = null; paused = false; $('pause').textContent = '⏸ Pause';
+    state = createWorld(seed || 'living-world'); camera = homeCamera(); selected = null; placing = null; paused = false;autoPaused=false;clock=createClock();fraction=0;syncPause();
     save(true); render(); notice('A new settlement was founded.');
   });
   $('export').addEventListener('click', () => {
@@ -889,7 +1216,7 @@ function setupControls() {
       if (file.size > 5000000) throw new Error('File exceeds 5 MB maximum.');
       const imported = deserializeWorld(await file.text());
       if (!window.confirm('Replace your current world with this imported save?')) return;
-      state = imported; camera = homeCamera(); selected = null; placing = null; paused = false; $('pause').textContent = '⏸ Pause';
+      state = imported; camera = homeCamera(); selected = null; placing = null; paused = false;autoPaused=false;clock=createClock();fraction=0;syncPause();
       save(true); render(); notice(`Imported settlement from day ${dayOf(state)}.`);
     } catch (e) { notice(`Import rejected: ${e.message}`); }
   });
@@ -905,7 +1232,7 @@ function setupControls() {
     selected = point;
     if (placing) {
       const placed = placeBuilding(state, placing, point.x, point.y);
-      if (placed.ok) { const name = BUILDINGS[placing].name; placing = null; notice(`${name} queued. Settlers will build it.`); save(true); }
+      if (placed.ok) { const name = BUILDINGS[placing].name; placing = null; resumeAfterBuild();notice(`${name} queued. Settlers will build it.`); save(true); }
       else notice(placed.reason);
     } else {
       const b = structureAt(state,point.x,point.y), p=state.settlers.find(p=>p.x===point.x&&p.y===point.y),t=tileAt(state,point.x,point.y);
@@ -957,6 +1284,8 @@ function setupControls() {
   $('zoom-home').addEventListener('click',()=>{camera=homeCamera();clampViewport(camera,state,canvas.width,canvas.height);drawMap();});
   window.addEventListener('resize', resizeCanvas);
 }
+function syncPause(){ $('pause').textContent=paused?'▶ Resume':'⏸ Pause';$('pause').setAttribute('aria-pressed',String(paused)); }
+function resumeAfterBuild(){if(autoPaused){autoPaused=false;paused=false;syncPause();}}
 function resizeCanvas() {
   const dpr=Math.min(window.devicePixelRatio||1,2);
   canvas.width=Math.round(Math.max(1,canvas.clientWidth)*dpr);
@@ -964,13 +1293,13 @@ function resizeCanvas() {
   if(camera)clampViewport(camera,state,canvas.width,canvas.height);
   drawMap();
 }
-function drawMap(){
+function drawMap(now=performance.now()){
   if(!state||!camera)return;
-  drawWorld(ctx,state,camera,{hovered,placing,selected,frame:renderFrame++});
+  drawWorld(ctx,state,camera,{hovered,placing,selected,frame:renderFrame++,fraction,movement,motionAge:Math.max(0,now-motionAt)});
   $('zoom-level').textContent=`${Math.round(camera.zoom*100)}%`;
 }
 function render() {
-  $('clock').textContent = `${dayOf(state)} · ${String(hourOf(state)).padStart(2,'0')}:00`;
+  updateClock();
   $('weather').textContent = `${state.weather} · ${seasonFor(dayOf(state))}`;
   $('people').textContent = `${state.settlers.length} / ${housingCapacity(state)}`;
   for (const resource of ['wood','stone','food']) {
@@ -978,6 +1307,23 @@ function render() {
     $(resource).title = `${Math.floor(state.stock[resource])} / ${storageCapacity(state,resource)} storage`;
   }
   $('pop-chip').textContent = `${state.settlers.length} alive`;
+  const known=state.magic.sites.filter(s=>s.discovered),strain=known.length?Math.round(known.reduce((a,s)=>a+s.strain,0)/known.length):0;
+  $('ley-known').textContent=`${known.length} / ${state.magic.sites.length}`;
+  $('ley-status').textContent=known.length?`${known.length} discovered`:'Undiscovered';
+  $('ley-strain').textContent=strain>65?'Troubled':strain>30?'Stirring':'Balanced';
+  $('ley-description').textContent=known.length
+    ? `${known.length} confluence${known.length===1?' has':'s have'} been recognised. ${state.magic.policy==='weave'?'Nearby farms grow faster while the currents are drawn down.':'The village observes how rain, forest and stone nourish the currents.'}`
+    : 'Strange currents gather beneath roots, rain and stone. Villagers discover them through their daily journeys.';
+  $('ley-observe').classList.toggle('active',state.magic.policy==='observe');
+  $('ley-weave').classList.toggle('active',state.magic.policy==='weave');
+  $('ley-weave').disabled=!known.length;
+  const chronicle=$('history-list');chronicle.replaceChildren();
+  $('history-count').textContent=`${state.history.total} milestones`;
+  for(const record of state.history.records.slice(-9).reverse()){
+    const li=document.createElement('li'),t=document.createElement('time');
+    t.textContent=dateLabel(record.tick)+' · '+record.type.toUpperCase();
+    li.append(t,document.createTextNode(record.text));chronicle.append(li);
+  }
   $('seed-label').textContent = `· ${state.seed}`;
   $('map-mode').textContent = placing ? `Placing ${BUILDINGS[placing].name} — tap grass` : paused ? 'Simulation paused' : 'Tap terrain or settlers to inspect';
   $('cancel-build').hidden = !placing;
@@ -1009,7 +1355,7 @@ function render() {
   const events = $('event-list');events.replaceChildren();
   for (const entry of state.events.slice(0,8)) {
     const li=document.createElement('li'), time=document.createElement('time');
-    time.textContent=`DAY ${Math.floor(entry.tick/24)+1} · ${String(entry.tick%24).padStart(2,'0')}:00`;
+    time.textContent=`${dateLabel(entry.tick)} · ${String(entry.tick%24).padStart(2,'0')}:00`;
     li.append(time,document.createTextNode(entry.message));events.append(li);
   }
   drawMap();
