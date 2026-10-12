@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14251f">
+  <meta name="description" content="Living World: an autonomous settlement simulation running entirely in your browser.">
+  <title>Living World · Autonomous Settlement</title>
+  <style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e6f0e5;background:#101a16;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,.button-label{font:inherit;cursor:pointer;border:1px solid #455f4e;color:#eaf2e8;background:#20392b;padding:9px 13px;border-radius:10px;transition:background .12s,border-color .12s}button:hover,.button-label:hover{background:#33543e;border-color:#739b78}button:focus-visible,.button-label:focus-visible{outline:3px solid #c2d48f;outline-offset:2px}button:disabled{opacity:.42;cursor:not-allowed}button.primary{background:#bcd28f;color:#1b2d20;border-color:#bcd28f;font-weight:700}button.primary:hover{background:#d4e4ac}.app-shell{max-width:1680px;margin:auto;padding:18px 22px 10px}.masthead{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:7px 0 19px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{color:#c7dc99;font-size:38px}.eyebrow{letter-spacing:2px;font-size:10px;font-weight:700;color:#a8bb9b}h1{font-family:Georgia,serif;font-size:37px;line-height:1;margin:3px 0 0;font-weight:500;letter-spacing:-1px}h2{font-family:Georgia,serif;font-size:23px;font-weight:500;margin:4px 0 0}.top-actions{display:flex;gap:8px}.hud{display:grid;grid-template-columns:1.2fr 1.45fr 1fr repeat(3,.9fr);background:#203429;border:1px solid #3a5140;border-radius:13px;margin-bottom:16px}.hud-cell{padding:12px 14px;border-right:1px solid #3a5140;display:flex;flex-direction:column;gap:5px;justify-content:center}.hud-cell:last-child{border-right:0}.hud-label{font-size:10px;letter-spacing:1.5px;font-weight:700;color:#b2c2ab}.hud-cell strong{font-size:18px;font-weight:650}.hud-cell.resource{display:grid;grid-template-columns:10px 1fr;column-gap:7px;align-items:center}.hud-cell.resource strong{grid-column:2}.resource-dot{width:9px;height:9px;border-radius:50%;grid-row:1}.wood{background:#d4a46c}.stone{background:#adb2bc}.food{background:#a2d889}.content-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(310px,1fr);align-items:start;gap:16px}.map-card,.panel{background:#1b2a22;border:1px solid #37493c;border-radius:14px;overflow:hidden}.map-bar,.map-footer{min-height:51px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}.map-bar>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.map-bar strong{font-size:14px}.muted{font-size:12px;color:#acbdae}.live-dot{width:8px;height:8px;border-radius:100%;background:#a9d280;box-shadow:0 0 0 4px #a9d28018}.map-wrap{position:relative;background:#293c2e;overflow:hidden}.map-wrap canvas{display:block;width:100%;aspect-ratio:44/32;touch-action:manipulation;image-rendering:auto;cursor:crosshair}.map-legend{position:absolute;left:12px;bottom:11px;display:flex;gap:14px;background:#132219dc;color:#e3eddc;font-size:11px;padding:8px 11px;border-radius:8px;pointer-events:none}.map-footer{font-size:12px;color:#bdccba;min-height:54px}.map-footer button{padding:6px 10px}.sidebar{display:flex;flex-direction:column;gap:14px}.panel{padding:18px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.small-chip{background:#314738;border-radius:6px;padding:5px 8px;font-size:11px;color:#c7d9bd}.panel-description{font-size:12px;line-height:1.6;color:#b2c5b0;margin:0 0 15px}.build-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.build-option{padding:11px;text-align:left;display:flex;flex-direction:column;align-items:start;gap:5px;min-height:88px}.build-option strong{font-size:13px}.build-option small{font-size:10px;color:#c0ccb9}.build-option em{font-style:normal;font-size:11px;color:#e1ce99}.build-option.selected{border:2px solid #e1db98;background:#3c5036;padding:10px}.settler-list{max-height:250px;overflow:auto}.settler-entry{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #324537}.settler-entry:last-child{border:0}.avatar{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#647e54;color:#f5f6e7;font-weight:700;font-size:11px}.settler-name{font-weight:650;font-size:12px}.settler-action{font-size:10px;color:#b9c8b3;margin-top:3px}.vitals{display:flex;gap:3px}.vital{height:5px;width:31px;border-radius:5px;background:#405245;overflow:hidden;margin-top:5px}.vital span{display:block;height:100%;background:#92c986}.vital.hunger span{background:#e0bd77}.event-list{padding:0;list-style:none;margin:0;max-height:195px;overflow:auto}.event-list li{padding:9px 0;border-bottom:1px solid #354338;font-size:12px;color:#cfdbc9;line-height:1.4}.event-list li:last-child{border:0}.event-list time{color:#94af98;display:block;font-size:10px;margin-bottom:3px}.tool-buttons{display:flex;gap:8px;flex-wrap:wrap}.tool-buttons button,.button-label{padding:8px 10px;font-size:12px}footer{text-align:center;color:#7e9886;font-size:11px;padding:24px 0 5px}@media(max-width:1050px){.content-grid{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.hud{grid-template-columns:repeat(3,1fr)}.hud-cell:nth-child(3){border-right:0}.hud-cell:nth-child(-n+3){border-bottom:1px solid #3a5140}}@media(max-width:600px){.app-shell{padding:10px}.masthead{align-items:flex-start;flex-direction:column;padding-bottom:12px}.brand-mark{font-size:31px}h1{font-size:30px}.top-actions{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.top-actions button{padding:9px 5px;font-size:12px}.hud-cell{padding:11px 9px}.hud-cell strong{font-size:16px}.hud-label{font-size:9px}.sidebar{display:flex}.map-bar{align-items:flex-start;flex-direction:column}.map-wrap .map-legend{font-size:9px;gap:7px;padding:5px;bottom:5px;left:5px}.map-footer{align-items:start}.panel{padding:14px}.build-option{min-height:77px}.content-grid{gap:11px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+
+</style>
+  
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><div><div class="eyebrow">AN AUTONOMOUS SETTLEMENT</div><h1>Living World</h1></div></div>
+      <div class="top-actions"><button id="pause" class="primary">⏸ Pause</button><button id="speed" aria-label="Change simulation speed">1× speed</button><button id="save">Save</button></div>
+    </header>
+    <section class="hud" aria-label="Settlement status">
+      <div class="hud-cell"><span class="hud-label">DAY / HOUR</span><strong id="clock">1 · 08:00</strong></div>
+      <div class="hud-cell"><span class="hud-label">CONDITIONS</span><strong id="weather">Clear · Spring</strong></div>
+      <div class="hud-cell"><span class="hud-label">PEOPLE</span><strong id="people">5 / 6</strong></div>
+      <div class="hud-cell resource"><span class="resource-dot wood"></span><span class="hud-label">WOOD</span><strong id="wood">38</strong></div>
+      <div class="hud-cell resource"><span class="resource-dot stone"></span><span class="hud-label">STONE</span><strong id="stone">26</strong></div>
+      <div class="hud-cell resource"><span class="resource-dot food"></span><span class="hud-label">FOOD</span><strong id="food">44</strong></div>
+    </section>
+    <main class="content-grid">
+      <section class="map-card" aria-label="Interactive simulation world">
+        <div class="map-bar"><div><span class="live-dot"></span><strong>Settlement map</strong><span class="muted" id="seed-label"></span></div><span class="muted" id="map-mode">Select a building below, then tap a grass tile.</span></div>
+        <div class="map-wrap"><canvas id="world" width="1056" height="768" aria-label="Top-down tile map; select a building then click or tap to construct" role="img"></canvas><div class="map-legend" aria-hidden="true"><span>● settler</span><span>✦ hearth</span><span>▣ building</span></div></div>
+        <div class="map-footer"><span id="notice" role="status" aria-live="polite">Your settlers act on their own. Shape their future.</span><button id="cancel-build" hidden>Cancel placement</button></div>
+      </section>
+      <aside class="sidebar">
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">SETTLEMENT</div><h2>Build & expand</h2></div><span class="small-chip">6 types</span></div><p class="panel-description">Plan a structure on free grass. Settlers gather materials and complete construction automatically.</p><div class="build-grid" id="build-buttons"></div></section>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">INHABITANTS</div><h2>Your people</h2></div><span class="small-chip" id="pop-chip">5 alive</span></div><div id="settler-list" class="settler-list"></div></section>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">WORLD HISTORY</div><h2>Recent events</h2></div></div><ol id="event-list" class="event-list"></ol></section>
+        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">PERSISTENCE</div><h2>Your world</h2></div></div><p class="panel-description">Local autosave every 20 hours. Export a portable file to keep a backup; import it on another device.</p><div class="tool-buttons"><button id="export">Export world</button><label class="button-label" for="import-file">Import world</label><input id="import-file" type="file" accept=".json,application/json" hidden><button id="new-world">New world</button></div></section>
+      </aside>
+    </main>
+    <footer>Living World <span id="version">v0.1</span> · Runs locally in your browser · No account or server required</footer>
+  </div>
+<script>
+(()=>{
+"use strict";
+/** Reproducible world creation. No DOM, browser APIs or external packages. */
+const WORLD_WIDTH = 44;
+const WORLD_HEIGHT = 32;
+const SAVE_VERSION = 1;
+
+const BUILDINGS = Object.freeze({
+  cabin: { name: 'Cabin', wood: 16, stone: 5, housing: 3, description: '+3 settler capacity' },
+  farm: { name: 'Farm', wood: 10, stone: 4, description: 'Grows renewable food' },
+  lumberyard: { name: 'Lumberyard', wood: 14, stone: 8, description: 'Improves timber harvesting' },
+  quarry: { name: 'Quarry', wood: 12, stone: 10, description: 'Improves stone gathering' },
+  well: { name: 'Well', wood: 12, stone: 9, description: 'Improves settler morale' },
+  warehouse: { name: 'Warehouse', wood: 18, stone: 12, description: '+150 storage for all resources' }
+});
+
+const FIRST_NAMES = [
+  'Ada', 'Arin', 'Bea', 'Cai', 'Dara', 'Eli', 'Fern', 'Galen', 'Hana',
+  'Ivo', 'Jora', 'Kira', 'Luca', 'Mara', 'Niko', 'Orla', 'Pax', 'Rina',
+  'Soren', 'Tali', 'Uma', 'Vera', 'Wren', 'Yara', 'Zev'
+];
+
+function hashSeed(seed) {
+  const input = String(seed);
+  let h = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function randomAt(seed, x, y, salt = 0) {
+  let v = (seed ^ Math.imul(x + 911, 374761393) ^ Math.imul(y + 131, 668265263) ^ Math.imul(salt + 17, 2246822519)) >>> 0;
+  v = Math.imul(v ^ (v >>> 13), 1274126177);
+  return ((v ^ (v >>> 16)) >>> 0) / 4294967296;
+}
+
+const smooth = t => t * t * (3 - 2 * t);
+function noise(seed, x, y, scale, salt) {
+  const fx = x / scale, fy = y / scale;
+  const ix = Math.floor(fx), iy = Math.floor(fy);
+  const dx = smooth(fx - ix), dy = smooth(fy - iy);
+  const a = randomAt(seed, ix, iy, salt), b = randomAt(seed, ix + 1, iy, salt);
+  const c = randomAt(seed, ix, iy + 1, salt), d = randomAt(seed, ix + 1, iy + 1, salt);
+  return (a + (b - a) * dx) * (1 - dy) + (c + (d - c) * dx) * dy;
+}
+
+function indexOf(state, x, y) { return y * state.width + x; }
+function inBounds(state, x, y) { return x >= 0 && y >= 0 && x < state.width && y < state.height; }
+function tileAt(state, x, y) { return inBounds(state, x, y) ? state.tiles[indexOf(state, x, y)] : null; }
+function structureAt(state, x, y) { return state.structures.find(b => b.x === x && b.y === y); }
+function seasonFor(day) { return ['Spring', 'Summer', 'Autumn', 'Winter'][Math.floor((day - 1) / 12) % 4]; }
+function storageCapacity(state, resource) {
+  const base = { wood: 180, stone: 130, food: 160 };
+  if (!Object.hasOwn(base, resource)) throw new Error('Unknown resource');
+  return base[resource] + state.structures.filter(b => b.complete && b.type === 'warehouse').length * 150;
+}
+function housingCapacity(state) {
+  return 6 + state.structures.filter(b => b.complete && b.type === 'cabin').length * 3;
+}
+function logEvent(state, message) {
+  state.events.unshift({ tick: state.tick, message });
+  if (state.events.length > 32) state.events.length = 32;
+}
+
+function createWorld(seed = 'living-world', width = WORLD_WIDTH, height = WORLD_HEIGHT) {
+  if (!Number.isInteger(width) || !Number.isInteger(height) || width < 16 || height < 16 || width > 100 || height > 100) {
+    throw new RangeError('World size must be between 16 and 100 tiles per side.');
+  }
+  const seedText = String(seed).slice(0, 80) || 'living-world';
+  const n = hashSeed(seedText);
+  const centerX = Math.floor(width / 2), centerY = Math.floor(height / 2);
+  const tiles = [];
+  for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+    const dist = Math.hypot(x - centerX, y - centerY);
+    const water = noise(n, x, y, 9, 1) * 0.7 + noise(n, x, y, 4, 2) * 0.3;
+    const trees = noise(n, x, y, 6, 3) * 0.5 + randomAt(n, x, y, 4) * 0.5;
+    const rocks = randomAt(n, x, y, 5);
+    let kind = 'grass';
+    if (dist > 6 && water < 0.29) kind = 'water';
+    else if (dist > 3.5 && rocks > 0.935) kind = 'stone';
+    else if (dist > 4.5 && trees > 0.53) kind = 'forest';
+    tiles.push({ kind, amount: kind === 'forest' ? 4 + Math.floor(randomAt(n, x, y, 7) * 5) : kind === 'stone' ? 8 : 0,
+      forageAfter: 0, regrowAt: 0 });
+  }
+  // Explicitly guarantee a useful immediate starting patch regardless of the seed.
+  for (let y = centerY - 3; y <= centerY + 3; y++) for (let x = centerX - 3; x <= centerX + 3; x++) {
+    if (Math.hypot(x - centerX, y - centerY) <= 3) tiles[y * width + x] = { kind: 'grass', amount: 0, forageAfter: 0, regrowAt: 0 };
+  }
+  const state = {
+    version: SAVE_VERSION, seed: seedText, width, height, tiles,
+    structures: [{ id: 1, type: 'hearth', x: centerX, y: centerY, complete: true, progress: 100, crop: 0 }],
+    settlers: [], nextSettlerId: 1, nextStructureId: 2,
+    stock: { wood: 38, stone: 26, food: 44 },
+    tick: 8, weather: 'Clear', events: [],
+    stats: { foodHarvested: 0, timberCollected: 0, stoneCollected: 0, births: 0 }
+  };
+  const coords = [[-1,-1],[1,-1],[-1,1],[1,1],[0,-2]];
+  for (const [dx, dy] of coords) addSettler(state, centerX + dx, centerY + dy);
+  logEvent(state, 'Five settlers founded a new hearth. Your settlement begins.');
+  return state;
+}
+
+function addSettler(state, x, y) {
+  if (!inBounds(state, x, y) || tileAt(state, x, y).kind === 'water') return null;
+  const id = state.nextSettlerId++;
+  const name = FIRST_NAMES[(hashSeed(state.seed) + id * 7) % FIRST_NAMES.length];
+  const settler = { id, name, x, y, hunger: 12, energy: 84, morale: 75, health: 100, task: 'Arriving', work: 0 };
+  state.settlers.push(settler);
+  return settler;
+}
+
+function placeBuilding(state, type, x, y) {
+  const blueprint = BUILDINGS[type];
+  if (!blueprint) return { ok: false, reason: 'Unknown building type.' };
+  if (!Number.isInteger(x) || !Number.isInteger(y) || !inBounds(state, x, y)) return { ok: false, reason: 'Outside the world.' };
+  const tile = tileAt(state, x, y);
+  if (tile.kind !== 'grass' || structureAt(state, x, y)) return { ok: false, reason: 'Choose an empty grass tile.' };
+  if (state.stock.wood < blueprint.wood || state.stock.stone < blueprint.stone) return { ok: false, reason: 'Not enough wood or stone.' };
+  const settled = state.structures.some(b => Math.hypot(b.x - x, b.y - y) <= 10);
+  if (!settled) return { ok: false, reason: 'Build within 10 tiles of your settlement.' };
+  state.stock.wood -= blueprint.wood;
+  state.stock.stone -= blueprint.stone;
+  const b = { id: state.nextStructureId++, type, x, y, progress: 0, complete: false, crop: 0 };
+  state.structures.push(b);
+  logEvent(state, `${blueprint.name} planned. Settlers will construct it.`);
+  return { ok: true, building: b };
+}
+
+
+/** Time progression and autonomous inhabitant decision-making, independent of display. */
+
+function dayOf(state) { return Math.floor(state.tick / 24) + 1; }
+function hourOf(state) { return state.tick % 24; }
+
+const DIRECTIONS = [[0,-1],[-1,0],[1,0],[0,1]];
+function findPathTo(state, x, y, predicate) {
+  const start = y * state.width + x;
+  const queue = [start], previous = new Int32Array(state.tiles.length).fill(-1);
+  previous[start] = start;
+  for (let head = 0; head < queue.length; head++) {
+    const pos = queue[head], px = pos % state.width, py = Math.floor(pos / state.width);
+    if (predicate(px, py)) {
+      if (pos === start) return { x, y, arrived: true };
+      let cur = pos;
+      while (previous[cur] !== start) cur = previous[cur];
+      return { x: cur % state.width, y: Math.floor(cur / state.width), arrived: false };
+    }
+    for (const [dx,dy] of DIRECTIONS) {
+      const nx = px + dx, ny = py + dy;
+      if (!inBounds(state, nx, ny) || tileAt(state,nx,ny).kind === 'water') continue;
+      const next = ny * state.width + nx;
+      if (previous[next] !== -1) continue;
+      previous[next] = pos;
+      queue.push(next);
+    }
+  }
+  return null;
+}
+
+function travelAndWork(state, settler, predicate, onArrival, label) {
+  const path = findPathTo(state, settler.x, settler.y, predicate);
+  if (!path) return false;
+  settler.task = label;
+  if (path.arrived) {
+    onArrival(settler.x, settler.y);
+    settler.energy = Math.max(0, settler.energy - 2.7);
+    settler.work++;
+  } else {
+    settler.x = path.x;
+    settler.y = path.y;
+    settler.energy = Math.max(0, settler.energy - 1.3);
+  }
+  return true;
+}
+
+function performJob(state, settler, job) {
+  if (job === 'build') {
+    const pending = state.structures.filter(b => !b.complete);
+    if (!pending.length) return false;
+    return travelAndWork(state, settler,
+      (x,y) => pending.some(b => x === b.x && y === b.y),
+      (x,y) => {
+        const b = structureAt(state, x, y);
+        if (!b || b.complete) return;
+        b.progress = Math.min(100, b.progress + 13);
+        if (b.progress === 100) {
+          b.complete = true;
+          logEvent(state, `${BUILDINGS[b.type].name} construction completed.`);
+        }
+      }, 'Building');
+  }
+  if (job === 'harvest') {
+    if (state.stock.food >= storageCapacity(state,'food')) return false;
+    const ripe = state.structures.filter(b => b.type === 'farm' && b.complete && b.crop >= 100);
+    if (!ripe.length) return false;
+    return travelAndWork(state, settler,
+      (x,y) => ripe.some(b => x === b.x && y === b.y),
+      (x,y) => {
+        const b = structureAt(state,x,y);
+        if (!b || b.type !== 'farm' || b.crop < 100) return;
+        const yieldFood = seasonFor(dayOf(state)) === 'Winter' ? 9 : 19;
+        const stored = Math.min(yieldFood, storageCapacity(state,'food') - state.stock.food);
+        if (stored <= 0) return;
+        state.stock.food += stored;
+        state.stats.foodHarvested += stored;
+        b.crop = 0;
+        logEvent(state, `${settler.name} harvested ${stored} food from a farm.`);
+      }, 'Harvesting');
+  }
+  if (job === 'forage') {
+    if (state.stock.food >= storageCapacity(state,'food')) return false;
+    return travelAndWork(state, settler,
+      (x,y) => { const t = tileAt(state,x,y); return !structureAt(state,x,y) && (t.kind === 'forest' || t.kind === 'grass') && t.forageAfter <= state.tick; },
+      (x,y) => {
+        const t = tileAt(state,x,y);
+        const food = t.kind === 'forest' ? 3 : 1;
+        const stored = Math.min(food, storageCapacity(state,'food') - state.stock.food);
+        if (stored <= 0) return;
+        state.stock.food += stored;
+        state.stats.foodHarvested += stored;
+        t.forageAfter = state.tick + (t.kind === 'forest' ? 15 : 26);
+      }, 'Foraging');
+  }
+  if (job === 'wood') {
+    if (state.stock.wood >= storageCapacity(state,'wood')) return false;
+    return travelAndWork(state, settler,
+      (x,y) => tileAt(state,x,y).kind === 'forest' && tileAt(state,x,y).amount > 0,
+      (x,y) => {
+        const t = tileAt(state,x,y);
+        const boost = state.structures.some(b => b.type === 'lumberyard' && b.complete) ? 2 : 0;
+        const stored = Math.min(3 + boost, storageCapacity(state,'wood') - state.stock.wood);
+        if (stored <= 0) return;
+        state.stock.wood += stored;
+        state.stats.timberCollected += stored;
+        t.amount--;
+        if (!t.amount) { t.kind = 'grass'; t.regrowAt = state.tick + 120; }
+      }, 'Logging');
+  }
+  if (job === 'stone') {
+    if (state.stock.stone >= storageCapacity(state,'stone')) return false;
+    return travelAndWork(state, settler,
+      (x,y) => tileAt(state,x,y).kind === 'stone' && tileAt(state,x,y).amount > 0,
+      (x,y) => {
+        const t = tileAt(state,x,y);
+        const boost = state.structures.some(b => b.type === 'quarry' && b.complete) ? 2 : 0;
+        const stored = Math.min(2 + boost, storageCapacity(state,'stone') - state.stock.stone);
+        if (stored <= 0) return;
+        state.stock.stone += stored;
+        state.stats.stoneCollected += stored;
+        t.amount--;
+        if (!t.amount) { t.kind = 'grass'; t.regrowAt = state.tick + 320; }
+      }, 'Quarrying');
+  }
+  return false;
+}
+
+function updateWeatherAndNature(state) {
+  if (state.tick % 24 === 0) {
+    const seed = hashSeed(state.seed), d = dayOf(state);
+    const r = randomAt(seed, d, 81, 9);
+    state.weather = r < 0.2 ? 'Rain' : r < 0.34 ? 'Overcast' : r < 0.41 ? 'Windy' : 'Clear';
+    logEvent(state, `Day ${d}: ${state.weather.toLowerCase()} weather in ${seasonFor(d).toLowerCase()}.`);
+  }
+  const hour = hourOf(state), daylight = hour >= 6 && hour <= 19;
+  const season = seasonFor(dayOf(state));
+  const seasonalGrowth = season === 'Winter' ? 0.4 : season === 'Summer' ? 1.1 : 1;
+  for (const b of state.structures) {
+    if (b.complete && b.type === 'farm' && daylight) {
+      b.crop = Math.min(100, b.crop + 4.2 * seasonalGrowth * (state.weather === 'Rain' ? 1.35 : 1));
+    }
+  }
+  // One deterministic regrowth pass per day, not expensive per-settler checks.
+  if (state.tick % 24 === 0) {
+    const seed = hashSeed(state.seed);
+    for (let i = 0; i < state.tiles.length; i++) {
+      const tile = state.tiles[i];
+      if (tile.kind === 'grass' && tile.regrowAt && tile.regrowAt <= state.tick) {
+        if (randomAt(seed,i,state.tick,11) < 0.65) { tile.kind = 'forest'; tile.amount = 5; tile.regrowAt = 0; }
+        else tile.regrowAt += 24;
+      }
+    }
+  }
+}
+
+function act(state, settler) {
+  settler.hunger = Math.min(120, settler.hunger + 1.45);
+  if (settler.hunger > 57 && state.stock.food >= 2) {
+    state.stock.food -= 2;
+    settler.hunger = Math.max(0, settler.hunger - 52);
+    settler.morale = Math.min(100, settler.morale + 1.5);
+    settler.task = 'Eating';
+    return;
+  }
+  if (settler.hunger >= 100) {
+    settler.health = Math.max(0, settler.health - 5);
+    settler.morale = Math.max(0, settler.morale - 3);
+  } else if (settler.health < 100 && settler.hunger < 60) settler.health = Math.min(100, settler.health + 0.2);
+  const night = hourOf(state) >= 22 || hourOf(state) < 6;
+  if (settler.energy < 23 || (night && settler.energy < 94)) {
+    settler.energy = Math.min(100, settler.energy + (night ? 17 : 11));
+    settler.task = 'Resting';
+    return;
+  }
+  const hasWell = state.structures.some(b => b.type === 'well' && b.complete);
+  settler.morale = Math.max(0, Math.min(100, settler.morale + (hasWell ? 0.15 : -0.035)));
+  const urgentFood = state.stock.food < Math.max(12, state.settlers.length * 4);
+  const pending = state.structures.some(b => !b.complete);
+  const ripe = state.structures.some(b => b.type === 'farm' && b.complete && b.crop >= 100);
+  const jobs = [];
+  if (urgentFood) jobs.push('forage');
+  if (pending) jobs.push('build');
+  if (ripe) jobs.push('harvest');
+  if (state.stock.wood < 42) jobs.push('wood');
+  if (state.stock.stone < 24) jobs.push('stone');
+  if (state.stock.food < 58) jobs.push('forage');
+  // Diversify autonomous activities without manually assigning every worker.
+  const routine = ['wood','stone','forage'];
+  for (let i = 0; i < routine.length; i++) {
+    const job = routine[(settler.id + Math.floor(state.tick / 12) + i) % routine.length];
+    const stockKey = job === 'forage' ? 'food' : job;
+    if (state.stock[stockKey] < storageCapacity(state, stockKey)) jobs.push(job);
+  }
+  for (const job of [...new Set(jobs)]) if (performJob(state, settler, job)) return;
+  settler.task = 'Taking a break';
+  settler.energy = Math.min(100, settler.energy + 0.4);
+}
+
+/** One simulation tick represents one in-game hour. Mutates the owned state intentionally. */
+function advanceWorld(state, hours = 1) {
+  if (!Number.isInteger(hours) || hours < 1 || hours > 1000) throw new RangeError('Hours must be an integer from 1 to 1000.');
+  for (let i = 0; i < hours; i++) {
+    state.tick++;
+    updateWeatherAndNature(state);
+    // Copy so births/removals never break iteration ordering.
+    for (const settler of [...state.settlers]) act(state, settler);
+    const deceased = state.settlers.filter(p => p.health <= 0);
+    if (deceased.length) {
+      for (const person of deceased) logEvent(state, `${person.name} died during the settlement's struggles.`);
+      state.settlers = state.settlers.filter(p => p.health > 0);
+    }
+    if (state.tick % 72 === 0 && state.settlers.length && state.settlers.length < housingCapacity(state) && state.stock.food > 50) {
+      const hearth = state.structures[0];
+      const directions = [[1,0],[0,1],[-1,0],[0,-1]];
+      const free = directions.map(([dx,dy]) => [hearth.x+dx,hearth.y+dy]).find(([x,y]) => tileAt(state,x,y)?.kind !== 'water');
+      if (free) {
+        const person = addSettler(state, ...free);
+        state.stats.births++;
+        logEvent(state, `${person.name} joined the growing settlement.`);
+      }
+    }
+  }
+  return state;
+}
+
+
+/** Versioned, validated save interchange. Never trusts imported JSON. */
+
+const STORAGE_KEY = 'living-world:save:v1';
+
+const finite = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
+function validateWorld(s) {
+  if (!s || typeof s !== 'object' || s.version !== SAVE_VERSION || typeof s.seed !== 'string' || s.seed.length > 80 ||
+      !Number.isInteger(s.width) || !Number.isInteger(s.height) || s.width < 16 || s.height < 16 || s.width > 100 || s.height > 100) return false;
+  if (!Array.isArray(s.tiles) || s.tiles.length !== s.width * s.height || !Array.isArray(s.structures) || !Array.isArray(s.settlers) || !Array.isArray(s.events) || s.events.length > 32) return false;
+  if (!Number.isSafeInteger(s.tick) || s.tick < 0 || !Number.isSafeInteger(s.nextSettlerId) || !Number.isSafeInteger(s.nextStructureId)) return false;
+  if (!s.stock || !['wood','stone','food'].every(k => finite(s.stock[k],0,10000000))) return false;
+  if (!s.stats || !['foodHarvested','timberCollected','stoneCollected','births'].every(k => finite(s.stats[k],0,10000000))) return false;
+  if (!['Clear','Rain','Overcast','Windy'].includes(s.weather)) return false;
+  if (!s.tiles.every(t => t && ['grass','forest','stone','water'].includes(t.kind) && Number.isInteger(t.amount) && finite(t.amount,0,100) && finite(t.forageAfter,0,1e12) && finite(t.regrowAt,0,1e12))) return false;
+  if (s.structures.length < 1 || s.structures.length > s.tiles.length || s.settlers.length > 300) return false;
+  const ids = new Set(), plots = new Set();
+  for (const b of s.structures) {
+    if (!b || !Number.isSafeInteger(b.id) || ids.has(b.id) || !['hearth',...Object.keys(BUILDINGS)].includes(b.type) ||
+        !Number.isInteger(b.x) || !Number.isInteger(b.y) || !inBounds(s,b.x,b.y) ||
+        !finite(b.progress,0,100) || typeof b.complete !== 'boolean' || !finite(b.crop,0,100)) return false;
+    const loc = `${b.x},${b.y}`;
+    if (plots.has(loc) || s.tiles[b.y*s.width+b.x].kind === 'water') return false;
+    ids.add(b.id); plots.add(loc);
+  }
+  if (s.structures[0].type !== 'hearth' || !s.structures[0].complete) return false;
+  const residentIds = new Set();
+  for (const p of s.settlers) {
+    if (!p || !Number.isSafeInteger(p.id) || residentIds.has(p.id) || typeof p.name !== 'string' || p.name.length > 50 ||
+        !Number.isInteger(p.x) || !Number.isInteger(p.y) || !inBounds(s,p.x,p.y) || s.tiles[p.y*s.width+p.x].kind === 'water' ||
+        !['hunger','energy','morale','health'].every(k => finite(p[k],0,120)) || typeof p.task !== 'string' || p.task.length > 80 ||
+        !Number.isInteger(p.work) || p.work < 0) return false;
+    residentIds.add(p.id);
+  }
+  if (!s.events.every(e => e && Number.isSafeInteger(e.tick) && e.tick >= 0 && typeof e.message === 'string' && e.message.length <= 300)) return false;
+  if (Math.max(...ids) >= s.nextStructureId || s.settlers.some(p => p.id >= s.nextSettlerId)) return false;
+  return true;
+}
+function serializeWorld(state) {
+  if (!validateWorld(state)) throw new Error('Cannot serialize an invalid world.');
+  return JSON.stringify(state);
+}
+function deserializeWorld(text) {
+  if (typeof text !== 'string' || text.length > 5000000) throw new Error('Save file is too large or invalid.');
+  let state;
+  try { state = JSON.parse(text); } catch { throw new Error('Save file is not valid JSON.'); }
+  if (!validateWorld(state)) throw new Error('Save file has an unsupported version or invalid data.');
+  return state;
+}
+function saveToStorage(storage, state) { storage.setItem(STORAGE_KEY, serializeWorld(state)); }
+function loadFromStorage(storage) {
+  const value = storage.getItem(STORAGE_KEY);
+  return value ? deserializeWorld(value) : null;
+}
+
+
+
+
+
+const $ = id => document.getElementById(id);
+const canvas = $('world'), ctx = canvas.getContext('2d');
+let state;
+let paused = false, speed = 1, placing = null, hovered = null;
+let savesAvailable = true;
+const COLOURS = { grass: '#66855a', forest: '#284e36', stone: '#858782', water: '#477a83' };
+const STRUCTURE_COLOURS = { hearth: '#f7ce7e', cabin: '#e2b98b', farm: '#b4b86c', lumberyard: '#ae8861', quarry: '#aeb3a6', well: '#72c0b9', warehouse: '#bd927b' };
+const safeStorage = () => { try { return window.localStorage; } catch { return null; } };
+function notice(message) { $('notice').textContent = message; }
+function save(silent = false) {
+  try {
+    const storage = safeStorage();
+    if (!storage) throw new Error('Browser storage is disabled.');
+    saveToStorage(storage, state);
+    savesAvailable = true;
+    if (!silent) notice('World saved to this browser. Use Export for a portable backup.');
+  } catch (e) { savesAvailable = false; notice(`Local save unavailable: ${e.message}. Export your world instead.`); }
+}
+function init() {
+  try {
+    const storage = safeStorage();
+    state = storage ? loadFromStorage(storage) : null;
+  } catch (e) { console.warn('Save could not be loaded:', e); notice('Old save invalid. A fresh world has been started.'); }
+  if (!state) state = createWorld('valley-' + Math.floor(Math.random() * 100000));
+  buildPalette();
+  setupControls();
+  resizeCanvas();
+  render();
+  setInterval(() => {
+    if (paused) return;
+    advanceWorld(state, speed);
+    if (state.tick % 20 < speed) save(true);
+    render();
+  }, 700);
+}
+function buildPalette() {
+  const palette = $('build-buttons');
+  for (const [type, b] of Object.entries(BUILDINGS)) {
+    const button = document.createElement('button');
+    button.className = 'build-option';
+    button.dataset.type = type;
+    const heading = document.createElement('strong'), cost = document.createElement('em'), desc = document.createElement('small');
+    heading.textContent = b.name;
+    cost.textContent = `${b.wood} wood · ${b.stone} stone`;
+    desc.textContent = b.description;
+    button.append(heading, cost, desc);
+    button.addEventListener('click', () => {
+      placing = placing === type ? null : type;
+      render();
+      notice(placing ? `Tap an empty grass tile to place ${b.name.toLowerCase()}.` : 'Building placement cancelled.');
+    });
+    palette.append(button);
+  }
+}
+function setupControls() {
+  $('pause').addEventListener('click', () => { paused = !paused; $('pause').textContent = paused ? '▶ Resume' : '⏸ Pause'; render(); });
+  $('speed').addEventListener('click', () => { speed = speed === 1 ? 2 : speed === 2 ? 4 : 1; $('speed').textContent = `${speed}× speed`; });
+  $('save').addEventListener('click', () => save());
+  $('cancel-build').addEventListener('click', () => { placing = null; render(); notice('Building placement cancelled.'); });
+  $('new-world').addEventListener('click', () => {
+    if (!window.confirm('Create a new world? Export your current settlement first if you want to keep it.')) return;
+    const seed = window.prompt('World seed (same seed creates the same terrain):', `valley-${Math.floor(Math.random()*100000)}`);
+    if (seed === null) return;
+    state = createWorld(seed || 'living-world'); placing = null; paused = false; $('pause').textContent = '⏸ Pause';
+    save(true); render(); notice('A new settlement was founded.');
+  });
+  $('export').addEventListener('click', () => {
+    try {
+      const data = new Blob([serializeWorld(state)], { type: 'application/json' });
+      const url = URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = url; link.download = `living-world-day-${dayOf(state)}.json`;
+      document.body.append(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+      notice('Portable world backup prepared.');
+    } catch (e) { notice(`Export failed: ${e.message}`); }
+  });
+  $('import-file').addEventListener('change', async event => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    try {
+      if (file.size > 5000000) throw new Error('File exceeds 5 MB maximum.');
+      const imported = deserializeWorld(await file.text());
+      if (!window.confirm('Replace your current world with this imported save?')) return;
+      state = imported; placing = null; paused = false; $('pause').textContent = '⏸ Pause';
+      save(true); render(); notice(`Imported settlement from day ${dayOf(state)}.`);
+    } catch (e) { notice(`Import rejected: ${e.message}`); }
+  });
+  canvas.addEventListener('pointermove', ev => { hovered = pointForEvent(ev); drawMap(); });
+  canvas.addEventListener('pointerleave', () => { hovered = null; drawMap(); });
+  canvas.addEventListener('click', ev => {
+    const point = pointForEvent(ev); if (!point || !inBounds(state,point.x,point.y)) return;
+    if (placing) {
+      const placed = placeBuilding(state, placing, point.x, point.y);
+      if (placed.ok) { const name = BUILDINGS[placing].name; placing = null; notice(`${name} queued. Settlers will build it.`); save(true); }
+      else notice(placed.reason);
+    } else {
+      const b = structureAt(state,point.x,point.y);
+      const p = state.settlers.find(p => p.x === point.x && p.y === point.y);
+      const t = tileAt(state,point.x,point.y);
+      notice(p ? `${p.name} — ${p.task}; energy ${Math.round(p.energy)}%, hunger ${Math.round(p.hunger)}%.` : b ? `${b.type === 'hearth' ? 'Hearth' : BUILDINGS[b.type].name} — ${b.complete ? b.type === 'farm' ? `crop ${Math.round(b.crop)}%` : 'operating' : `building ${b.progress}%`}.` : `${t.kind[0].toUpperCase()+t.kind.slice(1)} tile (${point.x}, ${point.y}).`);
+    }
+    render();
+  });
+  window.addEventListener('resize', resizeCanvas);
+}
+function pointForEvent(event) {
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+  const x = Math.floor((event.clientX - rect.left) / rect.width * state.width);
+  const y = Math.floor((event.clientY - rect.top) / rect.height * state.height);
+  return { x, y };
+}
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const width = Math.max(1, canvas.clientWidth);
+  canvas.width = Math.round(width * dpr);
+  canvas.height = Math.round(width * state.height / state.width * dpr);
+  drawMap();
+}
+function drawMap() {
+  if (!state || !ctx) return;
+  const w = canvas.width / state.width, h = canvas.height / state.height;
+  const seed = hashSeed(state.seed);
+  for (let y = 0; y < state.height; y++) for (let x = 0; x < state.width; x++) {
+    const t = tileAt(state,x,y), n = (seed + x * 13 + y * 19) % 7;
+    ctx.fillStyle = COLOURS[t.kind];
+    ctx.fillRect(x*w,y*h,Math.ceil(w+.3),Math.ceil(h+.3));
+    if (t.kind === 'grass') {
+      ctx.fillStyle = n < 3 ? '#b8c68a19' : '#223b2618';
+      ctx.fillRect(x*w+1,y*h+1,Math.max(1,w-2),Math.max(1,h-2));
+    } else if (t.kind === 'forest') {
+      ctx.fillStyle = '#3f7450';
+      ctx.beginPath(); ctx.arc((x+.5)*w,(y+.45)*h,Math.min(w,h)*.34,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle = '#1d3c2d';ctx.fillRect((x+.42)*w,(y+.64)*h,w*.17,h*.23);
+    } else if (t.kind === 'stone') {
+      ctx.fillStyle = '#b7b6aa';ctx.fillRect((x+.24)*w,(y+.27)*h,w*.49,h*.45);
+    } else if (t.kind === 'water' && n < 3) {
+      ctx.fillStyle = '#a3c8c244';ctx.fillRect((x+.18)*w,(y+.4)*h,w*.47,h*.07);
+    }
+  }
+  for (const b of state.structures) {
+    const x = b.x*w, y = b.y*h;
+    ctx.fillStyle = b.complete ? '#172b25' : '#d5d0a1';ctx.fillRect(x+w*.1,y+h*.1,w*.8,h*.8);
+    ctx.fillStyle = STRUCTURE_COLOURS[b.type];
+    if (b.type === 'farm') {
+      ctx.fillRect(x+w*.18,y+h*.2,w*.65,h*.6);
+      ctx.fillStyle = b.complete ? '#6b9249' : '#706448';
+      for (let i=0;i<3;i++)ctx.fillRect(x+w*(.23+i*.18),y+h*.25,w*.08,h*.5*(b.crop/100*.8+.2));
+    } else if (b.type === 'hearth') {
+      ctx.beginPath();ctx.moveTo(x+w*.5,y+h*.06);ctx.lineTo(x+w*.89,y+h*.5);ctx.lineTo(x+w*.5,y+h*.94);ctx.lineTo(x+w*.11,y+h*.5);ctx.closePath();ctx.fill();
+    } else {
+      ctx.fillRect(x+w*.18,y+h*.37,w*.64,h*.46);
+      ctx.beginPath();ctx.moveTo(x+w*.1,y+h*.4);ctx.lineTo(x+w*.5,y+h*.09);ctx.lineTo(x+w*.9,y+h*.4);ctx.closePath();ctx.fill();
+    }
+    if (!b.complete) {
+      ctx.fillStyle = '#171d1b';ctx.fillRect(x,y+h*.82,w,h*.13);
+      ctx.fillStyle = '#d7df96';ctx.fillRect(x,y+h*.82,w*(b.progress/100),h*.13);
+    }
+  }
+  // Draw residents separately so they remain visible atop buildings.
+  state.settlers.forEach((p,i) => {
+    const offset = i % 2 ? .13 : -.13, cx = (p.x+.5+offset)*w, cy = (p.y+.51+offset)*h;
+    const radius = Math.max(2,Math.min(w,h)*.28);
+    ctx.fillStyle = '#17271e';ctx.beginPath();ctx.arc(cx,cy,radius+1.6,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle = p.health < 40 ? '#e1a2a0' : '#f5e5b5';ctx.beginPath();ctx.arc(cx,cy,radius,0,Math.PI*2);ctx.fill();
+  });
+  if (hovered && inBounds(state,hovered.x,hovered.y)) {
+    ctx.strokeStyle = placing ? '#f4de8b' : '#edf5cf';ctx.lineWidth = Math.max(1,canvas.width/700);
+    ctx.strokeRect(hovered.x*w+1,hovered.y*h+1,w-2,h-2);
+  }
+  // Night dims the entire map without reducing UI legibility.
+  const hour = hourOf(state);
+  if (hour < 6 || hour >= 20) {
+    ctx.fillStyle = `rgba(16,25,48,${hour >= 22 || hour < 5 ? 0.31 : 0.14})`;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  }
+}
+function render() {
+  $('clock').textContent = `${dayOf(state)} · ${String(hourOf(state)).padStart(2,'0')}:00`;
+  $('weather').textContent = `${state.weather} · ${seasonFor(dayOf(state))}`;
+  $('people').textContent = `${state.settlers.length} / ${housingCapacity(state)}`;
+  for (const resource of ['wood','stone','food']) {
+    $(resource).textContent = Math.floor(state.stock[resource]);
+    $(resource).title = `${Math.floor(state.stock[resource])} / ${storageCapacity(state,resource)} storage`;
+  }
+  $('pop-chip').textContent = `${state.settlers.length} alive`;
+  $('seed-label').textContent = `· ${state.seed}`;
+  $('map-mode').textContent = placing ? `Placing ${BUILDINGS[placing].name} — tap grass` : paused ? 'Simulation paused' : 'Tap terrain or settlers to inspect';
+  $('cancel-build').hidden = !placing;
+  for (const button of document.querySelectorAll('.build-option')) {
+    const b = BUILDINGS[button.dataset.type];
+    button.classList.toggle('selected',button.dataset.type === placing);
+    button.disabled = !placing && (state.stock.wood < b.wood || state.stock.stone < b.stone);
+    button.setAttribute('aria-pressed',String(button.dataset.type===placing));
+  }
+  const list = $('settler-list'); list.replaceChildren();
+  for (const p of state.settlers.slice(0,20)) {
+    const entry = document.createElement('div');entry.className = 'settler-entry';
+    const av = document.createElement('span');av.className='avatar';av.textContent=p.name.slice(0,1);
+    const center = document.createElement('div'), title = document.createElement('div'), task = document.createElement('div');
+    title.className='settler-name';title.textContent=p.name;
+    task.className='settler-action';task.textContent=p.task;
+    center.append(title,task);
+    const vitals = document.createElement('div');vitals.className='vitals';
+    for (const [metric,amount] of [['energy',p.energy],['hunger',100-p.hunger]]) {
+      const box=document.createElement('div'), bar=document.createElement('span');box.className=`vital ${metric}`;
+      box.title=`${metric}: ${Math.round(metric==='hunger'?p.hunger:amount)}`;
+      bar.style.width=`${Math.max(0,Math.min(100,amount))}%`;box.append(bar);vitals.append(box);
+    }
+    entry.append(av,center,vitals);list.append(entry);
+  }
+  const events = $('event-list');events.replaceChildren();
+  for (const entry of state.events.slice(0,8)) {
+    const li=document.createElement('li'), time=document.createElement('time');
+    time.textContent=`DAY ${Math.floor(entry.tick/24)+1} · ${String(entry.tick%24).padStart(2,'0')}:00`;
+    li.append(time,document.createTextNode(entry.message));events.append(li);
+  }
+  drawMap();
+}
+init();
+
+})();
+</script>
+</body>
+</html>
