@@ -139,7 +139,7 @@ body{background:radial-gradient(ellipse at 82% 3%,#3b594c 0%,#192e2a 28%,#101e1c
     </header>
     <section class="hud" aria-label="Settlement status">
       <div class="hud-cell"><span class="hud-label">THE BOOK OF YEARS</span><strong id="clock">1 Budrise · Year 1</strong><small id="elapsed">Founded today</small></div>
-      <div class="hud-cell"><span class="hud-label">SKY & SEASON</span><strong id="weather">Clear · Spring</strong><small id="daylight">08:00 · Morning</small></div>
+      <div class="hud-cell"><span class="hud-label">SKY & SEASON</span><strong id="weather">Clear · Budrise</strong><small id="daylight">08:00 · Morning</small></div>
       <div class="hud-cell"><span class="hud-label">PEOPLE</span><strong id="people">5 / 6</strong></div>
       <div class="hud-cell resource"><span class="resource-dot wood"></span><span class="hud-label">WOOD</span><strong id="wood">38</strong></div>
       <div class="hud-cell resource"><span class="resource-dot stone"></span><span class="hud-label">STONE</span><strong id="stone">26</strong></div>
@@ -824,6 +824,7 @@ function zoomViewport(camera, factor, px, py, pixelWidth, pixelHeight, world) {
 
 
 
+
 const grass = { Spring:['#819c65','#88a76b','#7d9862'], Summer:['#88a467','#94ad70','#809d60'], Autumn:['#938d5f','#a09566','#88875a'], Winter:['#99a9a0','#a7b4aa','#95a69c'] };
 const pine = { Spring:['#335a43','#477651','#54835b'], Summer:['#2d6045','#417951','#548860'], Autumn:['#466044','#65764d','#81834e'], Winter:['#476d61','#65847a','#75978b'] };
 const buildingNames = {hearth:'Hearth',cabin:'Cabin',farm:'Farm',lumberyard:'Lumberyard',quarry:'Quarry',well:'Well',warehouse:'Warehouse'};
@@ -1086,7 +1087,7 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,frame=0,fraction=0,
   const label=hr>=20||hr<6?'NIGHTFALL':hr<9?'MORNING':hr<17?'DAYLIGHT':'EVENING';
   c.fillStyle='#11251de0';c.fillRect(12,12,Math.min(190,width*.48),34);
   c.font=`600 ${Math.max(12,Math.min(16,width/42))}px system-ui`;
-  c.fillStyle='#f4e6c7';c.fillText(`${label}  ·  ${season.toUpperCase()}`,21,34);
+  c.fillStyle='#f4e6c7';c.fillText(`${label}  ·  ${calendarAt(state.tick).season.toUpperCase()}`,21,34);
   c.setTransform(1,0,0,1,0,0);
 }
 
@@ -1186,7 +1187,7 @@ function buildPalette() {
 function setupControls() {
   $('pause').addEventListener('click', () => { paused = !paused;autoPaused=false;syncPause(); render(); });
   $('speed').addEventListener('change',ev=>{speed=Number(ev.target.value);notice(`Time now runs at ${speed}× · ${dayDurationMs(speed)/60000} minutes per day.`);updateClock();});
-  $('ley-observe').addEventListener('click',()=>{setAttunement(state,'observe');render();});
+  $('ley-observe').addEventListener('click',()=>{setAttunement(state,'observe');save(true);render();});
   $('ley-weave').addEventListener('click',()=>{if(setAttunement(state,'weave')){notice('Cultivation draws resonance into nearby farms, but strains the confluences.');save(true);render();}});
   $('save').addEventListener('click', () => save());
   $('cancel-build').addEventListener('click', () => { placing = null; resumeAfterBuild();render(); notice('Building placement cancelled.'); });
@@ -1300,7 +1301,7 @@ function drawMap(now=performance.now()){
 }
 function render() {
   updateClock();
-  $('weather').textContent = `${state.weather} · ${seasonFor(dayOf(state))}`;
+  $('weather').textContent = `${state.weather} · ${calendarAt(state.tick).season}`;
   $('people').textContent = `${state.settlers.length} / ${housingCapacity(state)}`;
   for (const resource of ['wood','stone','food']) {
     $(resource).textContent = Math.floor(state.stock[resource]);
