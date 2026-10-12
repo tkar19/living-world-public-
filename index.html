@@ -917,7 +917,8 @@ function setupControls() {
   }
   canvas.addEventListener('pointerdown',ev=>{
     if(ev.pointerType==='mouse' && ev.button!==0)return;
-    canvas.setPointerCapture(ev.pointerId);
+    // Capture can be unavailable in embedded webviews and synthetic events.
+    try { canvas.setPointerCapture(ev.pointerId); } catch { /* continue tracking locally */ }
     const p=coords(ev);pointers.set(ev.pointerId,p);
     if(pointers.size===1){startPoint=p;gestureDragged=false;multiTouch=false;}
     else{multiTouch=true;gestureDragged=true;const a=[...pointers.values()];pinchDistance=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);}
