@@ -1,35 +1,21 @@
-# Living World Public
+# Living World — Public Android Game
 
-**Mobile-playable web release of Living World v0.2.**
+**Current playable release: v0.3 · Leytide & Book of Years**
 
-This public repository contains only the standalone static game distribution, not the private development repository's history or project materials.
-
-## Play
-
-Once GitHub Pages is enabled, visit:
+Play directly in your Android browser with no account or installation:
 
 https://tkar19.github.io/living-world-public-/
 
-No laptop, Node.js, paid APIs or separate hosting account required. The game runs in the phone's browser, with autonomous villagers, resources, farming, construction, map controls and time simulation.
+This public repository deliberately contains **only the standalone playable game** and these brief release notes. The modular source, automated tests and development history remain in the owner's private `tkar19/living-world` repository.
 
-## Save your progress
+## v0.3
 
-Use **Export world** to download a JSON backup before clearing browser data or switching devices, then **Import world** to resume. The game also attempts browser-local autosaving.
+- Default day is ~10 real minutes; choose 0.5×, 1×, 2×, 4×, 8× or Pause. Placing buildings can pause the clock automatically.
+- The Book of Years tracks fictional dates (48 days/year), elapsed days and meaningful settlement milestones.
+- Villagers can discover magical Leytide confluences. Observe their recovery or weave finite resonance into nearby farms at an ecological cost.
+- Improved atmospheric rendering, animated inhabitants, glowing confluences, night lighting, new settlement and history panels.
+- Old v0.1/v0.2 saved worlds and JSON exports migrate automatically into save format v2 without resetting their world time.
 
-## Publishing
+**Before playing the new release:** make a portable world backup using **Export world**, then refresh the page. Browser cache may briefly show the previous version after publishing. Mobile behaviour must be verified on the owner's physical device.
 
-The game is served from the root **index.html** file. In this repository's **Settings → Pages**, choose **Deploy from a branch**, branch **main**, folder **/(root)**, then **Save**.
-
-GitHub Pages may take a few minutes to become available after first activation.
-
-## Development
-
-Development and tests remain in the original private Living World repository. This public repository is only for distributing the web-playable release. The current release has not been verified on the owner's physical Android phone.
-
-## v0.2 release
-
-Illustrated terrain and buildings, resident task visuals, drag/pinch camera controls and richer nighttime routines. The site is the tested standalone distribution generated from the private canonical source, containing no required external assets. Old v1 save files remain supported.
-
-**Play directly on your Android phone:** https://tkar19.github.io/living-world-public-/
-
-If your browser displays a previously cached build, refresh the page. Export a world backup before testing major future changes.
+No paid APIs, subscriptions, or external runtime libraries.
