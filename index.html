@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#14251f">
   <meta name="description" content="Living World: an autonomous settlement simulation running entirely in your browser.">
-  <title>Living World · A Settlement Alive</title>
+  <title>Living World · Hearth & Hinterland</title>
   <style>
 :root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e6f0e5;background:#101a16;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,.button-label{font:inherit;cursor:pointer;border:1px solid #455f4e;color:#eaf2e8;background:#20392b;padding:9px 13px;border-radius:10px;transition:background .12s,border-color .12s}button:hover,.button-label:hover{background:#33543e;border-color:#739b78}button:focus-visible,.button-label:focus-visible{outline:3px solid #c2d48f;outline-offset:2px}button:disabled{opacity:.42;cursor:not-allowed}button.primary{background:#bcd28f;color:#1b2d20;border-color:#bcd28f;font-weight:700}button.primary:hover{background:#d4e4ac}.app-shell{max-width:1680px;margin:auto;padding:18px 22px 10px}.masthead{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:7px 0 19px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{color:#c7dc99;font-size:38px}.eyebrow{letter-spacing:2px;font-size:10px;font-weight:700;color:#a8bb9b}h1{font-family:Georgia,serif;font-size:37px;line-height:1;margin:3px 0 0;font-weight:500;letter-spacing:-1px}h2{font-family:Georgia,serif;font-size:23px;font-weight:500;margin:4px 0 0}.top-actions{display:flex;gap:8px}.hud{display:grid;grid-template-columns:1.2fr 1.45fr 1fr repeat(3,.9fr);background:#203429;border:1px solid #3a5140;border-radius:13px;margin-bottom:16px}.hud-cell{padding:12px 14px;border-right:1px solid #3a5140;display:flex;flex-direction:column;gap:5px;justify-content:center}.hud-cell:last-child{border-right:0}.hud-label{font-size:10px;letter-spacing:1.5px;font-weight:700;color:#b2c2ab}.hud-cell strong{font-size:18px;font-weight:650}.hud-cell.resource{display:grid;grid-template-columns:10px 1fr;column-gap:7px;align-items:center}.hud-cell.resource strong{grid-column:2}.resource-dot{width:9px;height:9px;border-radius:50%;grid-row:1}.wood{background:#d4a46c}.stone{background:#adb2bc}.food{background:#a2d889}.content-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(310px,1fr);align-items:start;gap:16px}.map-card,.panel{background:#1b2a22;border:1px solid #37493c;border-radius:14px;overflow:hidden}.map-bar,.map-footer{min-height:51px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}.map-bar>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.map-bar strong{font-size:14px}.muted{font-size:12px;color:#acbdae}.live-dot{width:8px;height:8px;border-radius:100%;background:#a9d280;box-shadow:0 0 0 4px #a9d28018}.map-wrap{position:relative;background:#293c2e;overflow:hidden}.map-wrap canvas{display:block;width:100%;aspect-ratio:44/32;touch-action:manipulation;image-rendering:auto;cursor:crosshair}.map-legend{position:absolute;left:12px;bottom:11px;display:flex;gap:14px;background:#132219dc;color:#e3eddc;font-size:11px;padding:8px 11px;border-radius:8px;pointer-events:none}.map-footer{font-size:12px;color:#bdccba;min-height:54px}.map-footer button{padding:6px 10px}.sidebar{display:flex;flex-direction:column;gap:14px}.panel{padding:18px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.small-chip{background:#314738;border-radius:6px;padding:5px 8px;font-size:11px;color:#c7d9bd}.panel-description{font-size:12px;line-height:1.6;color:#b2c5b0;margin:0 0 15px}.build-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.build-option{padding:11px;text-align:left;display:flex;flex-direction:column;align-items:start;gap:5px;min-height:88px}.build-option strong{font-size:13px}.build-option small{font-size:10px;color:#c0ccb9}.build-option em{font-style:normal;font-size:11px;color:#e1ce99}.build-option.selected{border:2px solid #e1db98;background:#3c5036;padding:10px}.settler-list{max-height:250px;overflow:auto}.settler-entry{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #324537}.settler-entry:last-child{border:0}.avatar{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#647e54;color:#f5f6e7;font-weight:700;font-size:11px}.settler-name{font-weight:650;font-size:12px}.settler-action{font-size:10px;color:#b9c8b3;margin-top:3px}.vitals{display:flex;gap:3px}.vital{height:5px;width:31px;border-radius:5px;background:#405245;overflow:hidden;margin-top:5px}.vital span{display:block;height:100%;background:#92c986}.vital.hunger span{background:#e0bd77}.event-list{padding:0;list-style:none;margin:0;max-height:195px;overflow:auto}.event-list li{padding:9px 0;border-bottom:1px solid #354338;font-size:12px;color:#cfdbc9;line-height:1.4}.event-list li:last-child{border:0}.event-list time{color:#94af98;display:block;font-size:10px;margin-bottom:3px}.tool-buttons{display:flex;gap:8px;flex-wrap:wrap}.tool-buttons button,.button-label{padding:8px 10px;font-size:12px}footer{text-align:center;color:#7e9886;font-size:11px;padding:24px 0 5px}@media(max-width:1050px){.content-grid{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.hud{grid-template-columns:repeat(3,1fr)}.hud-cell:nth-child(3){border-right:0}.hud-cell:nth-child(-n+3){border-bottom:1px solid #3a5140}}@media(max-width:600px){.app-shell{padding:10px}.masthead{align-items:flex-start;flex-direction:column;padding-bottom:12px}.brand-mark{font-size:31px}h1{font-size:30px}.top-actions{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.top-actions button{padding:9px 5px;font-size:12px}.hud-cell{padding:11px 9px}.hud-cell strong{font-size:16px}.hud-label{font-size:9px}.sidebar{display:flex}.map-bar{align-items:flex-start;flex-direction:column}.map-wrap .map-legend{font-size:9px;gap:7px;padding:5px;bottom:5px;left:5px}.map-footer{align-items:start}.panel{padding:14px}.build-option{min-height:77px}.content-grid{gap:11px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
 /* V0.2 illustrated settlement theme and finger-first map controls. */
@@ -128,6 +128,77 @@ body{background:radial-gradient(ellipse at 82% 3%,#3b594c 0%,#192e2a 28%,#101e1c
 }
 @media(prefers-reduced-motion:reduce){.ley-orb{animation:none}}
 
+/* v0.4 Field Interface: world-first viewport with a command dock and contextual drawers.
+   This changes navigation and information hierarchy, not merely the old panel theme. */
+:root{--field-ink:#ebe4cf;--field-wood:#25342a;--field-copper:#dfba77;}
+html,body{height:100%;min-height:100%;overflow:hidden;overscroll-behavior:none}
+body{margin:0;background:#202f27;color:var(--field-ink);font-family:Georgia,'Times New Roman',serif}
+.app-shell{max-width:none;width:100%;height:100dvh;min-height:0;padding:0;position:relative;margin:0;overflow:hidden}
+.masthead{position:absolute;z-index:8;inset:0 0 auto 0;height:63px;padding:7px 17px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0;border:0;border-radius:0;background:#172820f2;box-shadow:none;backdrop-filter:none}
+.brand{display:flex;align-items:center;gap:8px;min-width:0}.brand-mark{border:0;background:none;box-shadow:none;width:26px;height:36px;border-radius:0;font-size:27px;color:#e1ca93}
+.brand .eyebrow,.brand .tagline,.brand .title-leaf{display:none}
+.masthead h1{font:700 clamp(18px,2.4vw,26px)/1.1 Georgia,serif;letter-spacing:.01em;margin:0;white-space:nowrap}
+.top-actions{display:flex;align-items:center;gap:7px;flex:none}.top-actions button{min-height:39px;padding:5px 12px;background:transparent;border:1px solid #a5ab8977;border-radius:3px;color:#f1e7d2;font:600 13px system-ui}
+.top-actions button.primary{background:#dabc7d;border-color:#dabc7d;color:#1b2a21}
+.pace-control{background:transparent;border:0;padding:0 2px;flex-direction:row}.pace-control>span{display:none}.pace-control select{background:#24362d;border:1px solid #a5ab8977;border-radius:3px;color:#f5e4c7;min-height:39px;max-width:113px;font-size:13px}
+.hud{position:absolute;z-index:7;inset:63px 0 auto;display:flex;align-items:stretch;height:54px;margin:0;border:0;border-top:1px solid #74816b55;border-radius:0;background:#24392ded;box-shadow:none;overflow:hidden}
+.hud-cell,.hud-cell:first-child{min-width:0;width:auto;flex:1;display:flex;flex-direction:column;justify-content:center;gap:2px;align-items:flex-start;padding:5px 14px;border:0;border-right:1px solid #74816b44;background:transparent}
+.hud-cell:first-child{flex:1.8}.hud-cell:nth-child(2){flex:1.25}.hud-cell .hud-label{font:700 9px system-ui;letter-spacing:.07em;color:#abb99e}.hud-cell strong{font:700 16px Georgia,serif;color:#fae5b6;white-space:nowrap}
+.hud-cell small{display:none}.hud-cell.resource{flex:.7;display:flex;flex-direction:row;align-items:center;gap:5px}.resource-dot{width:8px;height:8px;border-radius:50%}.hud-cell.resource .hud-label{display:none}.hud-cell.resource strong{font:700 16px system-ui}
+.content-grid{display:block;margin:0;padding:0;position:static;min-height:0}
+.map-card{position:absolute;z-index:1;inset:117px 0 68px;border:0;border-radius:0;overflow:hidden;background:#244c43;box-shadow:none;margin:0}
+.map-bar,.map-legend{display:none!important}
+.map-wrap{height:100%!important;min-height:0!important;max-height:none!important;width:100%;border:0;position:relative;background:#416b58}
+#world{display:block;width:100%;height:100%;touch-action:none;overscroll-behavior:contain}
+.map-sky{top:12px;left:12px;z-index:3;min-width:135px;max-width:46%;padding:7px 11px;border:1px solid #b9bb96a0;background:#182b22dd;border-radius:3px;box-shadow:none;backdrop-filter:none;font:13px Georgia,serif}
+.map-tools{top:12px;right:12px;border:1px solid #b9bb96a0;background:#182b22d9;box-shadow:none;border-radius:4px;backdrop-filter:none}
+.map-tools button{border:0;border-radius:2px;background:#405444c9}
+.map-footer{position:absolute;z-index:3;bottom:14px;left:12px;right:auto;min-height:0;max-width:min(580px,calc(100% - 24px));display:flex;flex-direction:column;align-items:start;gap:4px;border:1px solid #adac7a85;background:#182a24e5;border-radius:3px;padding:10px 13px;color:#f0e6cf;box-shadow:none}
+.map-footer #notice{font:12px/1.4 system-ui;color:#c2d5c3}.inspection{font:700 15px/1.35 Georgia,serif;color:#f5e3ba}
+.map-footer #cancel-build:not([hidden]){min-height:30px;border:1px solid #c2a96c;background:#6b512f;color:white;font:600 12px system-ui}
+.game-dock{z-index:12;position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom,0px));padding:3px 8px env(safe-area-inset-bottom,0px);gap:3px;background:#16271ff7;border-top:2px solid #9f9a6a}
+.game-dock button{background:transparent;border:0;border-top:3px solid transparent;border-radius:0;min-height:57px;padding:5px 1px;color:#e5e2ce;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;touch-action:manipulation}
+.game-dock button span{font:24px/1 Georgia,serif;color:#cfbf8e}.game-dock button b{font:600 11px system-ui;letter-spacing:.02em}
+.game-dock button.is-active{background:#344b3a;border-top-color:#dabc7d;color:#ffeab9}.game-dock button.is-active span{color:#ffe7a8}
+.sidebar{position:fixed;z-index:11;top:127px;bottom:calc(75px + env(safe-area-inset-bottom,0px));right:12px;width:min(410px,calc(100vw - 24px));min-width:0;max-height:none;display:none;overflow-y:auto;overscroll-behavior:contain;background:#162921f5;border:1px solid #a9ad82;border-radius:3px;padding:0;box-shadow:-6px 8px 24px #0b1718a8}
+.sidebar.is-open{display:block}.sidebar .panel{display:none!important;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;padding:17px 17px 22px}
+.sidebar[data-sheet="build"] [data-pane="build"],.sidebar[data-sheet="people"] [data-pane="people"],.sidebar[data-sheet="ley"] [data-pane="ley"],.sidebar[data-sheet="history"] [data-pane="history"],.sidebar[data-sheet="world"] [data-pane="world"],.sidebar[data-sheet="world"] [data-pane="activity"]{display:block!important}
+.sidebar .panel-heading{margin-bottom:10px}.sidebar .eyebrow{display:none}.sidebar h2{font:700 23px/1.1 Georgia,serif;color:#f6dfa6}
+.sidebar .panel-description,.sidebar .settler-action{font:13px/1.5 system-ui;color:#c5cebc}
+.sidebar .build-option{border-radius:3px;background:#304b39;min-height:78px}
+.sidebar .build-option.selected{background:#4d633c;border:2px solid #e0cb92}
+.sidebar .settler-entry{background:#233d30;border-bottom:1px solid #77826a55;border-radius:0;padding:7px}
+.drawer-heading{position:sticky;z-index:2;top:0;height:49px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 15px;background:#293d2f;border-bottom:1px solid #9e9e75;font:700 16px Georgia,serif;color:#ebdab2}
+.drawer-heading button{width:35px;height:31px;padding:0;background:#182b21;border:1px solid #838970;color:#ede5d3;border-radius:2px;font:24px/1 system-ui}
+.ley-orb{display:none}.ley-panel .ley-metrics>div{border-radius:3px;background:#30483d}
+.ley-panel .attunement button{border-radius:3px}.chronicle-panel .event-list{max-height:none}
+footer{display:none}
+@media(min-width:760px){
+ .masthead{height:70px}.hud{top:70px}.map-card{top:124px;bottom:0}.game-dock{left:14px;bottom:14px;right:auto;display:flex;flex-direction:column;width:78px;height:auto;padding:7px 4px;border:1px solid #afaa83;border-radius:2px}.game-dock button{width:68px;min-height:58px}
+ .sidebar{top:133px;bottom:13px;right:13px;width:360px}.map-footer{left:104px;bottom:13px}.map-sky{left:104px}
+}
+@media(max-width:600px){
+ .masthead{height:57px;padding:6px 8px;gap:3px}.brand{gap:0}.brand-mark{width:20px;font-size:21px}.masthead h1{font-size:18px}.top-actions{gap:3px;display:flex;width:auto}
+ .top-actions button{font-size:11px;padding:5px 7px;min-height:37px}.top-actions #save{display:none}
+ .pace-control{min-width:0;flex-direction:row}.pace-control select{font-size:11px;max-width:61px;min-height:37px;padding:0 1px}
+ .hud{top:57px;height:54px;grid-template-columns:none}.hud-cell{padding:5px 6px;min-width:0}.hud-cell:first-child{flex:2}.hud-cell:nth-child(2){display:none}.hud-cell:nth-child(3){flex:.64}.hud-cell.resource{flex:.52;gap:2px}.hud-cell .hud-label{font-size:8px}.hud-cell strong,.hud-cell.resource strong{font-size:13px!important}.hud-cell.resource .resource-dot{width:5px;height:5px}
+ .map-card{top:111px;bottom:calc(64px + env(safe-area-inset-bottom,0px))}.map-tools{top:7px;right:7px;padding:3px;gap:3px}.map-tools button{width:34px;height:35px}.map-sky{top:7px;left:7px;max-width:47%;font-size:11px;padding:6px 8px}
+ .map-footer{left:7px;right:7px;bottom:8px;max-width:none;padding:7px 10px;gap:2px}.inspection{font-size:13px}.map-footer #notice{font-size:10px;max-height:28px;overflow:hidden}
+ .game-dock{height:calc(64px + env(safe-area-inset-bottom,0px));padding-left:3px;padding-right:3px}.game-dock button{min-height:57px}.game-dock button span{font-size:22px}.game-dock button b{font-size:10px}
+ .sidebar{top:auto;bottom:calc(64px + env(safe-area-inset-bottom,0px));left:0;right:0;width:100%;max-height:66dvh;border-radius:6px 6px 0 0;border-left:0;border-right:0;border-bottom:0;box-shadow:0 -9px 24px #0a1718a9}
+ .sidebar .panel{padding:14px 15px 22px}.sidebar h2{font-size:22px}.sidebar .build-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* Compact fixed-header sizing overrides legacy mobile grid rules. */
+@media(max-width:600px){
+ .masthead .top-actions{width:auto;grid-template-columns:none;display:flex;align-self:center;height:43px;align-items:center}
+ .masthead .top-actions #pause,.masthead .top-actions #save{height:37px;min-height:37px;padding:4px 8px;line-height:1.2;font-size:12px}
+ .masthead .pace-control{height:37px;display:flex;flex-direction:row;align-self:center;border:0;background:transparent}
+ .masthead .pace-control select{height:37px;max-width:64px;min-height:37px;font-size:11px}
+ .masthead .brand{align-self:center}
+}
+
+@media(max-width:600px){.masthead{flex-direction:row!important;justify-content:space-between!important;align-items:center!important}.masthead .top-actions{flex:none}.masthead .brand{flex:0 1 auto;min-width:0}}
+
 </style>
   
 </head>
@@ -139,7 +210,7 @@ body{background:radial-gradient(ellipse at 82% 3%,#3b594c 0%,#192e2a 28%,#101e1c
     </header>
     <section class="hud" aria-label="Settlement status">
       <div class="hud-cell"><span class="hud-label">THE BOOK OF YEARS</span><strong id="clock">1 Budrise · Year 1</strong><small id="elapsed">Founded today</small></div>
-      <div class="hud-cell"><span class="hud-label">SKY & SEASON</span><strong id="weather">Clear · Budrise</strong><small id="daylight">08:00 · Morning</small></div>
+      <div class="hud-cell"><span class="hud-label">SKY & SEASON</span><strong id="weather">Clear · Spring</strong><small id="daylight">08:00 · Morning</small></div>
       <div class="hud-cell"><span class="hud-label">PEOPLE</span><strong id="people">5 / 6</strong></div>
       <div class="hud-cell resource"><span class="resource-dot wood"></span><span class="hud-label">WOOD</span><strong id="wood">38</strong></div>
       <div class="hud-cell resource"><span class="resource-dot stone"></span><span class="hud-label">STONE</span><strong id="stone">26</strong></div>
@@ -149,18 +220,25 @@ body{background:radial-gradient(ellipse at 82% 3%,#3b594c 0%,#192e2a 28%,#101e1c
       <section class="map-card" aria-label="Interactive simulation world">
         <div class="map-bar"><div><span class="live-dot"></span><strong>Settlement map</strong><span class="muted" id="seed-label"></span></div><span class="muted" id="map-mode">Drag to explore · Pinch to zoom · Tap to inspect.</span></div>
         <div class="map-wrap"><div class="map-sky"><span id="world-phase">Morning in the valley</span><div class="day-meter"><span id="day-progress"></span></div></div><div class="map-tools" role="group" aria-label="Map navigation"><button id="zoom-in" title="Zoom in" aria-label="Zoom in">＋</button><span id="zoom-level" aria-live="off">175%</span><button id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button><button id="zoom-home" title="Find your hearth" aria-label="Find your hearth">⌂</button></div><canvas id="world" width="1056" height="768" aria-label="Top-down tile map; select a building then click or tap to construct" role="img"></canvas><div class="map-legend" aria-hidden="true"><span>👣 Drag to explore</span><span>✌ Pinch to zoom</span><span>✦ Tap to inspect</span></div></div>
-        <div class="map-footer"><span id="notice" role="status" aria-live="polite">Your settlers act on their own. Shape their future.</span><button id="cancel-build" hidden>Cancel placement</button></div>
+        <div class="map-footer"><div class="inspection" id="inspection" role="status">Select a settler, building or patch of land to learn about it.</div><span id="notice" role="status" aria-live="polite">Your settlers act on their own. Shape their future.</span><button id="cancel-build" hidden>Cancel placement</button></div>
       </section>
-      <aside class="sidebar">
-        <section class="panel ley-panel"><div class="panel-heading"><div><div class="eyebrow">THE LIVING LAND</div><h2>✧ Leytide currents</h2></div><span class="small-chip" id="ley-status">Uncharted</span></div><div class="ley-orb" aria-hidden="true"><span class="ley-orb-inner"></span></div><p class="panel-description" id="ley-description">Strange currents gather beneath roots, rain and stone. Your villagers may begin to notice them.</p><div class="ley-metrics"><div><span>KNOWN SITES</span><strong id="ley-known">0 / 5</strong></div><div><span>LAND STRAIN</span><strong id="ley-strain">Quiet</strong></div></div><div class="attunement"><button id="ley-observe" class="active">Observe · Rest</button><button id="ley-weave" disabled>Weave · Cultivate</button></div><p class="panel-description ley-note" id="ley-note">Observing restores the land. Cultivation may increase harvests at the cost of local balance.</p></section>
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">SETTLEMENT</div><h2>Build & expand</h2></div><span class="small-chip">6 buildings</span></div><p class="panel-description">Choose a building, then tap a clear grassy plot. Your settlers handle the construction.</p><label class="build-pause"><input type="checkbox" id="pause-build" checked> Pause time while selecting a plot</label><div class="build-grid" id="build-buttons"></div></section>
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">INHABITANTS</div><h2>Your people</h2></div><span class="small-chip" id="pop-chip">5 alive</span></div><div id="settler-list" class="settler-list"></div></section>
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">DAILY LIFE</div><h2>Recent activity</h2></div></div><ol id="event-list" class="event-list"></ol></section>
-        <section class="panel chronicle-panel"><div class="panel-heading"><div><div class="eyebrow">THE CHRONICLE</div><h2>Book of Years</h2></div><span class="small-chip" id="history-count">1 milestone</span></div><ol id="history-list" class="event-list"></ol></section>
-        <section class="panel"><div class="panel-heading"><div><div class="eyebrow">PERSISTENCE</div><h2>Your world</h2></div></div><p class="panel-description">Local autosave every 20 hours. Export a portable file to keep a backup; import it on another device.</p><div class="tool-buttons"><button id="export">Export world</button><label class="button-label" for="import-file">Import world</label><input id="import-file" type="file" accept=".json,application/json" hidden><button id="new-world">New world</button></div></section>
+      <aside class="sidebar" id="game-drawer" aria-label="Gameplay tools"><div class="drawer-heading"><strong id="drawer-title">Build your settlement</strong><button id="drawer-close" aria-label="Close panel">×</button></div>
+        <section class="panel ley-panel" data-pane="ley"><div class="panel-heading"><div><div class="eyebrow">THE LIVING LAND</div><h2>✧ Leytide currents</h2></div><span class="small-chip" id="ley-status">Uncharted</span></div><div class="ley-orb" aria-hidden="true"><span class="ley-orb-inner"></span></div><p class="panel-description" id="ley-description">Strange currents gather beneath roots, rain and stone. Your villagers may begin to notice them.</p><div class="ley-metrics"><div><span>KNOWN SITES</span><strong id="ley-known">0 / 5</strong></div><div><span>LAND STRAIN</span><strong id="ley-strain">Quiet</strong></div></div><div class="attunement"><button id="ley-observe" class="active">Observe · Rest</button><button id="ley-weave" disabled>Weave · Cultivate</button></div><p class="panel-description ley-note" id="ley-note">Observing restores the land. Cultivation may increase harvests at the cost of local balance.</p></section>
+        <section class="panel" data-pane="build"><div class="panel-heading"><div><div class="eyebrow">SETTLEMENT</div><h2>Build & expand</h2></div><span class="small-chip">6 buildings</span></div><p class="panel-description">Choose a building, then tap a clear grassy plot. Your settlers handle the construction.</p><label class="build-pause"><input type="checkbox" id="pause-build" checked> Pause time while selecting a plot</label><div class="build-grid" id="build-buttons"></div></section>
+        <section class="panel" data-pane="people"><div class="panel-heading"><div><div class="eyebrow">INHABITANTS</div><h2>Your people</h2></div><span class="small-chip" id="pop-chip">5 alive</span></div><div id="settler-list" class="settler-list"></div></section>
+        <section class="panel" data-pane="activity"><div class="panel-heading"><div><div class="eyebrow">DAILY LIFE</div><h2>Recent activity</h2></div></div><ol id="event-list" class="event-list"></ol></section>
+        <section class="panel chronicle-panel" data-pane="history"><div class="panel-heading"><div><div class="eyebrow">THE CHRONICLE</div><h2>Book of Years</h2></div><span class="small-chip" id="history-count">1 milestone</span></div><ol id="history-list" class="event-list"></ol></section>
+        <section class="panel" data-pane="world"><div class="panel-heading"><div><div class="eyebrow">PERSISTENCE</div><h2>Your world</h2></div></div><p class="panel-description">Local autosave every 20 hours. Export a portable file to keep a backup; import it on another device.</p><div class="tool-buttons"><button id="export">Export world</button><label class="button-label" for="import-file">Import world</label><input id="import-file" type="file" accept=".json,application/json" hidden><button id="new-world">New world</button></div></section>
       </aside>
+      <nav id="game-dock" class="game-dock" aria-label="Game menus">
+        <button type="button" data-open="build"><span aria-hidden="true">⚒</span><b>Build</b></button>
+        <button type="button" data-open="people"><span aria-hidden="true">♟</span><b>People</b></button>
+        <button type="button" data-open="ley"><span aria-hidden="true">✧</span><b>Leytide</b></button>
+        <button type="button" data-open="history"><span aria-hidden="true">▤</span><b>Years</b></button>
+        <button type="button" data-open="world"><span aria-hidden="true">☷</span><b>World</b></button>
+      </nav>
     </main>
-    <footer>Living World <span id="version">v0.3</span> · Runs locally in your browser · No account or server required</footer>
+    <footer>Living World <span id="version">v0.4</span> · Runs locally in your browser · No account or server required</footer>
   </div>
 <script>
 (()=>{
@@ -248,7 +326,7 @@ function isValidChronicle(h,tick) {
 /** Reproducible world creation. No DOM, browser APIs or external packages. */
 const WORLD_WIDTH = 44;
 const WORLD_HEIGHT = 32;
-const SAVE_VERSION = 2;
+const SAVE_VERSION = 3;
 
 const BUILDINGS = Object.freeze({
   cabin: { name: 'Cabin', wood: 16, stone: 5, housing: 3, description: '+3 settler capacity' },
@@ -354,7 +432,7 @@ function addSettler(state, x, y) {
   if (!inBounds(state, x, y) || tileAt(state, x, y).kind === 'water') return null;
   const id = state.nextSettlerId++;
   const name = FIRST_NAMES[(hashSeed(state.seed) + id * 7) % FIRST_NAMES.length];
-  const settler = { id, name, x, y, hunger: 12, energy: 84, morale: 75, health: 100, task: 'Arriving', work: 0 };
+  const settler = { id, name, x, y, hunger: 12, energy: 84, morale: 75, health: 100, task: 'Arriving', work: 0, awareness: 0 };
   state.settlers.push(settler);
   return settler;
 }
@@ -416,17 +494,55 @@ function setAttunement(state,policy) {
   return true;
 }
 function farmResonance(world,farm) {
-  if(!world.magic || world.magic.policy!=='weave')return 1;
-  const site=world.magic.sites.find(s=>s.discovered && s.charge>=5 && s.strain<85 && distance(s,farm)<=6);
-  return site ? (site.strain>=50?1.12:1.48) : 1;
+  if(!world.magic)return 1;
+  // Leytide influences vegetation even if nobody in the settlement knows it exists.
+  const sites=world.magic.sites.filter(s=>distance(s,farm)<=5);
+  if(!sites.length)return 1;
+  const s=sites.sort((a,b)=>distance(a,farm)-distance(b,farm))[0];
+  if(s.strain>=75)return .68;
+  const natural=s.charge>=68 && s.strain<38 ? 1.09 : 1;
+  if(world.magic.policy==='weave' && s.discovered && s.charge>=5 && s.strain<85)
+    return (s.strain>=50?1.12:1.48) * natural;
+  return natural;
 }
+// Local ecological feedback from confluences: non-player initiated, persistent through tiles.
+function leyEcology(state,site) {
+  const d=Math.floor(state.tick/24);
+  if(d===0 || d%4!==0)return null;
+  const strong=site.charge>=68 && site.strain<45;
+  const exhausted=site.strain>=63;
+  if(!strong && !exhausted)return null;
+  const seed=hashSeed(state.seed);
+  const candidates=[];
+  for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){
+    const x=site.x+dx,y=site.y+dy,t=tileAt(state,x,y);
+    if(!t||structureAt(state,x,y))continue;
+    if(Math.hypot(dx,dy)>3.3 || (strong?t.kind!=='grass':t.kind!=='forest'))continue;
+    candidates.push({t,x,y,score:randomAt(seed,x,y,d+731)});
+  }
+  candidates.sort((a,b)=>a.score-b.score);
+  const picked=candidates.find(c=>c.score<.73);
+  if(!picked)return null;
+  if(strong){picked.t.kind='forest';picked.t.amount=4;picked.t.regrowAt=0;
+    site.charge=Math.max(0,site.charge-7);site.strain=Math.min(100,site.strain+1);
+    return {kind:'bloom',x:picked.x,y:picked.y};}
+  picked.t.kind='grass';picked.t.amount=0;picked.t.regrowAt=state.tick+192;
+  site.strain=Math.max(0,site.strain-2);
+  return {kind:'withering',x:picked.x,y:picked.y};
+}
+function nearbyLeytide(world,person) {
+  if(!world.magic)return null;
+  return world.magic.sites.find(s=>distance(s,person)<=2.6) ?? null;
+}
+
 function leyAt(world,x,y) {return world.magic?.sites.find(s=>s.x===x&&s.y===y)??null;}
 function updateLeytide(state) {
   if(!state.magic)return;
   for(const s of state.magic.sites){
+    const witnesses=state.settlers.filter(p=>distance(p,s)<=2.6);
+    for(const p of witnesses)p.awareness=between(p.awareness+(s.strain>=65?.45:.7),0,100);
     if(!s.discovered){
-      const witnesses=state.settlers.filter(p=>distance(p,s)<=2.6).length;
-      s.witness=between(s.witness+witnesses,0,250);
+      s.witness=between(s.witness+witnesses.length,0,250);
       if(s.witness>=6){
         s.discovered=true;state.magic.knowledge++;
         remember(state,'discovery',`The villagers recognised a Leytide confluence at (${s.x}, ${s.y}).`);
@@ -438,6 +554,14 @@ function updateLeytide(state) {
       s.charge=between(s.charge+(state.weather==='Rain'?8:4)-(s.strain>65?2:0),0,100);
       s.strain=between(s.strain-(state.magic.policy==='observe'?5:2),0,100);
       if(s.strain>=65 && s.strain<68)remember(state,'environment','The confluence flickered: careless cultivation strained the land.');
+    }
+    if(state.tick%24===0){
+      const effect=leyEcology(state,s);
+      if(effect){
+        const name=effect.kind==='bloom'?'A living grove has awakened':'A grove has withered';
+        remember(state,'environment',`${name} near (${effect.x}, ${effect.y}) as Leytide currents shifted.`);
+        logEvent(state,`${name} near the confluence.`);
+      }
     }
     if(state.magic.policy==='weave' && s.discovered && s.charge>=5){
       const farms=state.structures.filter(b=>b.complete&&b.type==='farm'&&distance(s,b)<=6);
@@ -649,6 +773,19 @@ function act(state, settler) {
     }
     return;
   }
+  const site=nearbyLeytide(state,settler);
+  if(site){
+    // People react to the state of the land without awaiting a council policy.
+    if(site.strain>=70)settler.morale=Math.max(0,settler.morale-.35);
+    else if(site.charge>=65)settler.morale=Math.min(100,settler.morale+.10);
+  }
+  // Experienced residents can restore a stressed grove on their own initiative.
+  if(settler.awareness>=22 && state.tick%11===settler.id%11){
+    const stressed=state.magic.sites.filter(s=>s.discovered && s.strain>=36);
+    if(stressed.length && travelAndWork(state,settler,
+      (x,y)=>stressed.some(s=>Math.hypot(s.x-x,s.y-y)<=1),
+      (x,y)=>{const s=stressed.find(s=>Math.hypot(s.x-x,s.y-y)<=1);if(s)s.strain=Math.max(0,s.strain-3.5);},'Tending grove'))return;
+  }
   const hasWell = state.structures.some(b => b.type === 'well' && b.complete);
   // Small unassigned social routines happen in comfortable, well-stocked towns.
   // They use the same travel/path system as labour, not teleportation.
@@ -714,7 +851,8 @@ function advanceWorld(state, hours = 1) {
 
 /** Versioned, validated save interchange. Never trusts imported JSON. */
 
-const STORAGE_KEY = 'living-world:save:v2';
+const STORAGE_KEY = 'living-world:save:v3';
+const PREVIOUS_STORAGE_KEY = 'living-world:save:v2';
 const LEGACY_STORAGE_KEY = 'living-world:save:v1';
 
 const finite = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
@@ -743,7 +881,7 @@ function validateBase(s, version) {
     if (!p || !Number.isSafeInteger(p.id) || residentIds.has(p.id) || typeof p.name !== 'string' || p.name.length > 50 ||
         !Number.isInteger(p.x) || !Number.isInteger(p.y) || !inBounds(s,p.x,p.y) || s.tiles[p.y*s.width+p.x].kind === 'water' ||
         !['hunger','energy','morale','health'].every(k => finite(p[k],0,120)) || typeof p.task !== 'string' || p.task.length > 80 ||
-        !Number.isInteger(p.work) || p.work < 0) return false;
+        !Number.isInteger(p.work) || p.work < 0 || (version === 3 && !finite(p.awareness,0,100))) return false;
     residentIds.add(p.id);
   }
   if (!s.events.every(e => e && Number.isSafeInteger(e.tick) && e.tick >= 0 && typeof e.message === 'string' && e.message.length <= 300)) return false;
@@ -756,9 +894,15 @@ function validateWorld(s) {
 function migrateSave(old) {
   if(!validateBase(old,1)) throw new Error('Invalid legacy world');
   const next = structuredClone(old);
-  next.version=SAVE_VERSION;
+  next.version=2;
   next.history=migrateChronicle(old);
   next.magic=createLeytide(next);
+  return next;
+}
+function migrateV2(old) {
+  if (!validateBase(old,2) || !isValidChronicle(old.history,old.tick) || !validLeytide(old.magic,old)) throw new Error('Invalid v2 world');
+  const next=structuredClone(old);next.version=SAVE_VERSION;
+  for(const p of next.settlers)p.awareness=0;
   return next;
 }
 function serializeWorld(state) {
@@ -770,12 +914,13 @@ function deserializeWorld(text) {
   let state;
   try { state = JSON.parse(text); } catch { throw new Error('Save file is not valid JSON.'); }
   if (state?.version===1) state=migrateSave(state);
+  if(state?.version===2)state=migrateV2(state);
   if (!validateWorld(state)) throw new Error('Save file has an unsupported version or invalid data.');
   return state;
 }
 function saveToStorage(storage, state) { storage.setItem(STORAGE_KEY, serializeWorld(state)); }
 function loadFromStorage(storage) {
-  const value = storage.getItem(STORAGE_KEY) || storage.getItem(LEGACY_STORAGE_KEY);
+  const value = storage.getItem(STORAGE_KEY) || storage.getItem(PREVIOUS_STORAGE_KEY) || storage.getItem(LEGACY_STORAGE_KEY);
   return value ? deserializeWorld(value) : null;
 }
 
@@ -819,7 +964,20 @@ function zoomViewport(camera, factor, px, py, pixelWidth, pixelHeight, world) {
 }
 
 
+/** Deterministic sub-hour physical poses; rendering owns no simulation mutations. */
+const clamp=n=>Math.max(0,Math.min(1,n));
+function positionDuringHour(start,end,fraction){
+  const f=clamp(fraction/.72),e=f*f*(3-2*f);
+  return {x:start.x+(end.x-start.x)*e,y:start.y+(end.y-start.y)*e,moving:f<1&&(start.x!==end.x||start.y!==end.y)};
+}
+function activityPhase(task,fraction){
+  const working=['Building','Logging','Quarrying','Harvesting','Foraging','Tending grove'];
+  return working.includes(task) ? Math.sin(clamp(fraction)*10*Math.PI) : 0;
+}
+
+
 /** Illustrated, dependency-free world renderer. Never changes simulation state. */
+
 
 
 
@@ -842,7 +1000,11 @@ function cell(c,t,x,y,n,season,clock){
     return;
   }
   const cols = grass[season];
-  useFill(c,cols[Math.floor(n*3)]); c.fillRect(x,y,1.012,1.012);
+  // A single ground colour prevents the patchwork of visibly square grass tiles;
+  // organic contour and vegetation marks provide the variation instead.
+  useFill(c,cols[0]); c.fillRect(x,y,1.012,1.012);
+  if(n>.65)oval(c,x+.62,y+.48,.61,.27,'#d5c8920c');
+  if(n<.30)oval(c,x+.39,y+.58,.58,.30,'#294d320b');
   if(n>.24){
     const px=x+.12+(n*.47)% .63, py=y+.15+(n*.61)%.69;
     line(c,px,py,px-.045,py-.11,season==='Winter'?'#e8ebe0b0':'#bbcd8e9e',.018);
@@ -863,10 +1025,14 @@ function cell(c,t,x,y,n,season,clock){
     oval(c,x+.52,y+.84,.42,.17,'#243d3250');
     useFill(c,'#584d3b');c.fillRect(x+.47,y+.42,.13,.42);
     const p=pine[season];
-    oval(c,x+.36,y+.49,.34,.26,p[0]);
-    oval(c,x+.67,y+.47,.27,.27,p[1]);
-    oval(c,x+.51,y+.28,.34,.32,p[2]);
-    oval(c,x+.43,y+.19,.18,.10,'#c4d7aa24');
+    // Layered overlapping canopy lobes suggest one dense crown instead of three circles.
+    oval(c,x+.30,y+.54,.25,.24,p[0]);oval(c,x+.70,y+.53,.27,.22,p[0]);
+    for(let k=0;k<6;k++){
+      const a=k*Math.PI/3+n*2;
+      oval(c,x+.49+Math.cos(a)*.23,y+.39+Math.sin(a)*.15,.20,.18,p[k%3]);
+    }
+    oval(c,x+.48,y+.30,.23,.18,p[2]);
+    line(c,x+.35,y+.28,x+.46,y+.22,'#b8daac66',.027);
     if(season==='Winter') {
       oval(c,x+.5,y+.18,.24,.065,'#eaf2e2a8');
       oval(c,x+.30,y+.42,.12,.045,'#eaf2e28c');
@@ -886,8 +1052,17 @@ function terrain(c,state,season,seed,x1,y1,x2,y2,frame) {
       }
     }
     if(tile.kind==='water'){
-      const near=[[0,-1],[0,1],[-1,0],[1,0]].some(([dx,dy])=>tileAt(state,x+dx,y+dy)?.kind==='grass');
-      if(near){line(c,x+.05,y+.90,x+.78,y+.89,'#d0d5a353',.035);}
+      const shores=[[0,-1],[0,1],[-1,0],[1,0]];
+      for(const [dx,dy] of shores){
+        const other=tileAt(state,x+dx,y+dy);
+        if(!other||other.kind==='water')continue;
+        // Irregular shoreline silt and reeds interrupt the hard tile outline.
+        c.beginPath();
+        if(dx===0){let edge=y+(dy<0?0:1);c.moveTo(x,edge);c.quadraticCurveTo(x+.34,edge+(dy<0?.11:-.11),x+.60,edge+(dy<0?.03:-.03));c.lineTo(x+1,edge);}
+        else{let edge=x+(dx<0?0:1);c.moveTo(edge,y);c.quadraticCurveTo(edge+(dx<0?.1:-.1),y+.56,edge,y+1);}
+        c.lineWidth=.13;c.strokeStyle='#b9bd8677';c.stroke();
+        if(n>.5){oval(c,x+.35,y+.22,.035,.026,'#d8d6a4a8');}
+      }
     }
   }
 }
@@ -964,16 +1139,18 @@ function structure(c,b,clock,season){
   }
 }
 const outfit = ['#d6a168','#87a9a3','#ae8aab','#b4b67c','#c2796c','#829dc1'];
-function people(c,state,clock,frame,movement,motionAge){
+function people(c,state,clock,frame,movement,motionAge,fraction){
   // Consistent colour per person, job equipment and task emblems make work readable.
   for(const p of state.settlers){
     const old=movement?.get(p.id);
-    const t=old ? Math.min(1,motionAge/3700) : 1;
-    const eased=t*t*(3-2*t);
-    const moving=old && (old.x!==p.x||old.y!==p.y) && t<1;
-    const fx=old?old.x+(p.x-old.x)*eased:p.x, fy=old?old.y+(p.y-old.y)*eased:p.y;
-    const idle=Math.sin(frame*.065+p.id*2.3)*.075;
-    const bounce=moving?Math.sin(t*11*Math.PI)*.04:Math.sin(frame*.04+p.id)*.025;
+    // Physical travel occupies the travel portion of a simulated hour, not just 3.7 seconds.
+    const pose=positionDuringHour(old||p,p,fraction);
+    const moving=pose.moving;
+    const fx=pose.x, fy=pose.y;
+    const t=Math.min(1,Math.max(0,fraction)/.72);
+    const swing=activityPhase(p.task,fraction);
+    const idle=moving?0:Math.sin(fraction*3*Math.PI+p.id)*.018;
+    const bounce=moving?Math.abs(Math.sin(t*13*Math.PI))*.035:Math.sin(fraction*4*Math.PI+p.id)*.012;
     const x=fx+.5+((p.id%3)-1)*.12+idle,y=fy+.49+((p.id%5)-2)*.07-bounce;
     oval(c,x,y+.27,.17,.065,'#293d305c');
     const colour=outfit[p.id%outfit.length];
@@ -986,14 +1163,22 @@ function people(c,state,clock,frame,movement,motionAge){
     oval(c,x-.035,y-.18,.13,.052,['#4e4639','#85654d','#62452e'][p.id%3]);
     if(moving){
       // Head-to-toe motion remains visible even during long in-world hours.
-      line(c,x-.09,y+.19,x-.14+Math.sin(t*19)*.03,y+.28,'#b7c79d',.04);
+      line(c,x-.09,y+.19,x-.14+Math.sin(t*19)*.05,y+.28,'#b7c79d',.05);
     }
     if(p.task==='Building'||p.task==='Logging'||p.task==='Quarrying'){
-      line(c,x+.14,y+.02,x+.28,y-.15,'#ac8054',.033);
-      poly(c,[[x+.24,y-.21],[x+.36,y-.18],[x+.32,y-.10],[x+.21,y-.14]],'#aeb6ae');
+      const angle=moving?0:swing*.20;
+      const ox=Math.sin(angle)*.16,oy=Math.cos(angle)*.10;
+      line(c,x+.14,y+.02,x+.27+ox,y-.14+oy,'#ac8054',.043);
+      poly(c,[[x+.23+ox,y-.20+oy],[x+.39+ox,y-.16+oy],[x+.32+ox,y-.08+oy],[x+.20+ox,y-.13+oy]],'#b8bcb2');
+      if(!moving && swing>.65){
+        const tint=p.task==='Logging'?'#c1db9a':p.task==='Quarrying'?'#d7d2c2':'#d3b284';
+        oval(c,x+.35,y+.32,.035,.025,tint);oval(c,x+.41,y+.25,.026,.021,tint);
+      }
     } else if(p.task==='Harvesting'||p.task==='Foraging'){
       oval(c,x+.21,y+.14,.12,.06,'#926c41');
       oval(c,x+.20,y+.095,.075,.04,'#98b967');
+      if(!moving){line(c,x-.16,y+.15,x-.25,y+.16+swing*.11,'#dfd5a0',.03);
+        if(p.task==='Harvesting')oval(c,x-.2,y+.22+swing*.06,.04,.04,'#e9c784');}
     } else if(p.task==='Resting'){
       c.save();c.font='bold .24px sans-serif';c.fillStyle='#f6ecc4';c.fillText('z',x+.18,y-.18);c.restore();
     }
@@ -1008,6 +1193,13 @@ function magicalLayer(c,state,frame){
       oval(c,site.x+.5,site.y+.54,.26,.11,`rgba(128,237,208,${a.toFixed(3)})`);
       for(let i=0;i<3;i++)oval(c,site.x+.5+Math.sin(frame*.016+i*2)*.22,site.y+.4+Math.cos(frame*.013+i)*.16,.022,.037,'#b0e9df9c');
       continue;
+    }
+    // The land's health is visible without opening a resource-management panel.
+    if(site.strain>=60){
+      oval(c,site.x+.5,site.y+.56,1.25,.45,'#b76e4433');
+      for(let k=0;k<4;k++)line(c,site.x-.25+k*.26,site.y+.76,site.x-.20+k*.28,site.y+.64,'#cdad7c66',.027);
+    }else if(site.charge>=70){
+      oval(c,site.x+.5,site.y+.64,1.20,.46,'#75cb9b22');
     }
     const strength=site.charge/100,glow=.6+.25*Math.sin(frame*.038+site.x);
     c.save();c.translate(site.x+.5,site.y+.52);
@@ -1045,7 +1237,7 @@ function drawWorld(c,state,camera,{hovered=null,placing=null,frame=0,fraction=0,
   }}
   state.structures.forEach(b=>structure(c,b,frame,season));
   magicalLayer(c,state,frame);
-  people(c,state,state.tick,frame,movement,motionAge);
+  people(c,state,state.tick,frame,movement,motionAge,fraction);
   if(hovered&&hovered.x>=0&&hovered.y>=0&&hovered.x<state.width&&hovered.y<state.height){
     c.strokeStyle=placing?'#ffe49b':'#e9f3ce';c.lineWidth=.07;c.strokeRect(hovered.x+.07,hovered.y+.07,.86,.86);
     if(placing){c.fillStyle='#f9dd9150';c.fillRect(hovered.x+.06,hovered.y+.06,.88,.88);}
@@ -1106,11 +1298,12 @@ let state;
 let paused = false, speed = 1, placing = null, hovered = null;
 let autoPaused = false, clock = createClock(), fraction=0, lastFrame=0, lastPaint=0, lastClockLabel=0;
 let movement = new Map(), motionAt=0;
+let openSheet = null;
 let savesAvailable = true;
 let camera, selected = null, renderFrame = 0;
 const pointers = new Map();
 let startPoint = null, pinchDistance = 0, gestureDragged = false, multiTouch = false;
-function homeCamera(){const v=createViewport(state); if(window.innerWidth<=600)v.zoom=2.55;return v;}
+function homeCamera(){const v=createViewport(state); v.zoom=window.innerWidth<=600?3.65:2.65;return v;}
 const safeStorage = () => { try { return window.localStorage; } catch { return null; } };
 function notice(message) { $('notice').textContent = message; }
 function save(silent = false) {
@@ -1131,10 +1324,31 @@ function init() {
   camera = homeCamera();
   buildPalette();
   setupControls();
+  setupFieldInterface();
   resizeCanvas();
   render();
   requestAnimationFrame(frameLoop);
   document.addEventListener('visibilitychange',()=>{lastFrame=0;});
+}
+function setSheet(name){
+  openSheet = openSheet===name ? null : name;
+  const drawer=$('game-drawer');
+  drawer.classList.toggle('is-open',!!openSheet);
+  drawer.dataset.sheet=openSheet||'';
+  drawer.setAttribute('aria-hidden',String(!openSheet));
+  $('drawer-title').textContent=({build:'Build your settlement',people:'The inhabitants',ley:'The living land',history:'Book of Years',world:'World & records'})[openSheet]||'';
+  for(const button of document.querySelectorAll('[data-open]')){
+    button.classList.toggle('is-active',button.dataset.open===openSheet);
+    button.setAttribute('aria-expanded',String(button.dataset.open===openSheet));
+  }
+  // Re-measure if the viewport changes due to mobile browser chrome / keyboard.
+  requestAnimationFrame(resizeCanvas);
+}
+function setupFieldInterface(){
+  for(const button of document.querySelectorAll('[data-open]'))button.addEventListener('click',()=>setSheet(button.dataset.open));
+  $('drawer-close').addEventListener('click',()=>setSheet(null));
+  window.addEventListener('keydown',e=>{if(e.key==='Escape' && openSheet)setSheet(null);});
+  $('game-drawer').setAttribute('aria-hidden','true');
 }
 function frameLoop(now) {
   const elapsed=lastFrame?Math.max(0,now-lastFrame):0;
@@ -1179,7 +1393,7 @@ function buildPalette() {
       if(!placing)resumeAfterBuild();
       render();
       notice(placing ? `Tap an empty grass tile to place ${b.name.toLowerCase()}.` : 'Building placement cancelled.');
-      if(placing && window.innerWidth <= 1050)document.querySelector('.map-card').scrollIntoView({behavior:'smooth',block:'start'});
+      if(placing && openSheet)setSheet(null);
     });
     palette.append(button);
   }
@@ -1308,13 +1522,20 @@ function render() {
     $(resource).title = `${Math.floor(state.stock[resource])} / ${storageCapacity(state,resource)} storage`;
   }
   $('pop-chip').textContent = `${state.settlers.length} alive`;
+  if(selected){
+    const p=state.settlers.find(p=>p.x===selected.x && p.y===selected.y);
+    const b=structureAt(state,selected.x,selected.y),t=tileAt(state,selected.x,selected.y);
+    $('inspection').textContent=p?`${p.name} · ${p.task} · ${Math.round(p.awareness||0)}% Leytide familiarity`:
+      b?`${b.type==='hearth'?'Village hearth':BUILDINGS[b.type].name} · ${b.complete?(b.type==='farm'?Math.round(b.crop)+'% crop':'Active'):Math.round(b.progress)+'% built'}`:
+      t?`${t.kind[0].toUpperCase()+t.kind.slice(1)} terrain · ${selected.x}, ${selected.y}`:'The uncharted wilderness';
+  } else $('inspection').textContent='Tap the land or a settler to inspect · Drag to explore';
   const known=state.magic.sites.filter(s=>s.discovered),strain=known.length?Math.round(known.reduce((a,s)=>a+s.strain,0)/known.length):0;
   $('ley-known').textContent=`${known.length} / ${state.magic.sites.length}`;
   $('ley-status').textContent=known.length?`${known.length} discovered`:'Undiscovered';
   $('ley-strain').textContent=strain>65?'Troubled':strain>30?'Stirring':'Balanced';
   $('ley-description').textContent=known.length
-    ? `${known.length} confluence${known.length===1?' has':'s have'} been recognised. ${state.magic.policy==='weave'?'Nearby farms grow faster while the currents are drawn down.':'The village observes how rain, forest and stone nourish the currents.'}`
-    : 'Strange currents gather beneath roots, rain and stone. Villagers discover them through their daily journeys.';
+    ? `${known.length} confluence${known.length===1?' has':'s have'} been recognised. Confluences change local forests and crop growth even without council involvement. ${state.magic.policy==='weave'?'Weaving amplifies growth, but draws down the land.':'The village observes currents and the ecology recovers.'}`
+    : 'The Leytide lives beneath forests, fields and rain. Its wild blooms and withering can reshape the land whether anyone notices or not.';
   $('ley-observe').classList.toggle('active',state.magic.policy==='observe');
   $('ley-weave').classList.toggle('active',state.magic.policy==='weave');
   $('ley-weave').disabled=!known.length;
@@ -1340,7 +1561,7 @@ function render() {
     const av = document.createElement('span');av.className='avatar';av.textContent=p.name.slice(0,1);
     const center = document.createElement('div'), title = document.createElement('div'), task = document.createElement('div');
     title.className='settler-name';title.textContent=p.name;
-    task.className='settler-action';task.textContent=p.task;
+    task.className='settler-action';task.textContent=`${p.task} · ${Math.round(p.awareness||0)}% ley awareness`;
     center.append(title,task);
     const vitals = document.createElement('div');vitals.className='vitals';
     for (const [metric,amount] of [['energy',p.energy],['hunger',100-p.hunger]]) {
@@ -1349,7 +1570,7 @@ function render() {
       bar.style.width=`${Math.max(0,Math.min(100,amount))}%`;box.append(bar);vitals.append(box);
     }
     entry.classList.add('settler-focus');entry.setAttribute('role','button');entry.tabIndex=0;entry.setAttribute('aria-label',`Find ${p.name} on map`);
-    const focus=()=>{camera.cx=p.x+.5;camera.cy=p.y+.5;camera.zoom=Math.max(camera.zoom,2.4);clampViewport(camera,state,canvas.width,canvas.height);selected={x:p.x,y:p.y};drawMap();notice(`${p.name}: ${p.task} · morale ${Math.round(p.morale)}%.`);window.scrollTo({top:document.querySelector('.map-card').getBoundingClientRect().top+window.scrollY-8,behavior:'smooth'});};
+    const focus=()=>{camera.cx=p.x+.5;camera.cy=p.y+.5;camera.zoom=Math.max(camera.zoom,2.4);clampViewport(camera,state,canvas.width,canvas.height);selected={x:p.x,y:p.y};drawMap();notice(`${p.name}: ${p.task} · morale ${Math.round(p.morale)}%.`);if(openSheet)setSheet(null);};
     entry.addEventListener('click',focus);entry.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();focus();}});
     entry.append(av,center,vitals);list.append(entry);
   }
